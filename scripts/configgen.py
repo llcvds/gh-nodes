@@ -110,6 +110,24 @@ def to_clash_link(n: dict) -> str | None:
     if t == "hysteria2":
         from urllib.parse import quote
         return f"hysteria2://{quote(str(n.get('password','')))}@{n['server']}:{n['port']}#{quote(name)}"
+    if t == "socks5":
+        # 标准 socks URI: socks://base64(user:pass)@host:port
+        # 无认证时用 ":" 的 base64 "Og==" (v2rayN / mihomo 都认)
+        from urllib.parse import quote
+        u, pw = str(n.get("username") or ""), str(n.get("password") or "")
+        cred = base64.b64encode(f"{u}:{pw}".encode()).decode().rstrip("=")
+        return f"socks://{cred}@{n['server']}:{n['port']}#{quote(name)}"
+    if t == "http":
+        # http/https 代理没有官方 URI 标准, 但 v2rayN / Shadowrocket /
+        # mihomo 都能解析 http://user:pass@host:port 这种写法
+        from urllib.parse import quote
+        u, pw = str(n.get("username") or ""), str(n.get("password") or "")
+        auth = f"{quote(u, safe='')}:{quote(pw, safe='')}@" if (u or pw) else ""
+        scheme = "https" if n.get("tls") else "http"
+        return f"{scheme}://{auth}{n['server']}:{n['port']}#{quote(name)}"
+    if t == "anytls":
+        from urllib.parse import quote
+        return f"anytls://{quote(str(n.get('password','')))}@{n['server']}:{n['port']}#{quote(name)}"
     return None
 
 
