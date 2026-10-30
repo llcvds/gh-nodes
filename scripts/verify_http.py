@@ -57,9 +57,12 @@ def api(ctrl: str, path: str, timeout: int = 30) -> dict:
 
 def start_mihomo(binary: str, workdir: str, proxies: list[dict],
                  ctrl: int) -> subprocess.Popen:
-    """最小配置: 只有 proxies 和 select 组, 不引用 geo, 避免 CI 里下载数据库"""
-    import yaml
+    """最小配置: 只有 proxies 和 select 组, 不引用 geo, 避免 CI 里下载数据库。
 
+    注意: 刻意不用 PyYAML —— GitHub runner 的 setup-python 环境里没有装它,
+    而 JSON 本身是 YAML 1.2 的子集, mihomo 用的是 yaml.v3, 能直接解析 JSON。
+    这样就少一个 CI 依赖。
+    """
     names = [p["name"] for p in proxies]
     cfg = {
         "mixed-port": free_port(),
@@ -81,7 +84,7 @@ def start_mihomo(binary: str, workdir: str, proxies: list[dict],
     }
     cfg_path = os.path.join(workdir, "config.yaml")
     with open(cfg_path, "w", encoding="utf-8") as fh:
-        yaml.safe_dump(cfg, fh, allow_unicode=True, sort_keys=False)
+        json.dump(cfg, fh, ensure_ascii=False, indent=1)
     proc = subprocess.Popen(
         [binary, "-d", workdir, "-f", cfg_path],
         stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
