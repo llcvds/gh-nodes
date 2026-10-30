@@ -129,7 +129,7 @@ jobs:
             echo "无变化, 跳过提交"
             exit 0
           fi
-          N=$(grep -cE '^\s+- name:' outputs/subscription/mihomo.yaml 2>/dev/null || echo 0)
+          N=$(grep -cE '^\s+- name:' output/mihomo.yaml 2>/dev/null || echo 0)
           MSG="chore: 更新节点 ${N} 个 [$(date -u '+%Y-%m-%d %H:%M UTC')]"
           git commit -m "$MSG"
           for i in 1 2 3; do
