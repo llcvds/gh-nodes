@@ -117,6 +117,8 @@ def main() -> int:
     ap.add_argument("--out", default="output", help="输出目录")
     ap.add_argument("--mihomo", default=os.environ.get("MIHOMO_BIN", "mihomo"))
     ap.add_argument("--url", default="https://www.cloudflare.com/cdn-cgi/trace")
+    ap.add_argument("--url2", default="https://www.gstatic.com/generate_204",
+                    help="第二测速地址, 用于重试第一轮失败的节点")
     ap.add_argument("--timeout", type=int, default=4000, help="单节点超时(毫秒)")
     ap.add_argument("--workers", type=int, default=200, help="并发探测数")
     ap.add_argument("--batch", type=int, default=1800, help="每批装入内核的节点数")
@@ -140,14 +142,27 @@ def main() -> int:
         proc = None
         try:
             proc = start_mihomo(args.mihomo, wd, batch, ctrl)
-            with cf.ThreadPoolExecutor(max_workers=args.workers) as ex:
-                futs = {ex.submit(probe, ctrl, n["name"], args.url, args.timeout): n
-                        for n in batch}
-                for f in cf.as_completed(futs):
-                    n = futs[f]
-                    d = f.result()
-                    if d is not None:
-                        alive.append(dict(n, _delay=d))
+            def run_pass(pool: list[dict], url: str) -> list[dict]:
+                got, miss = [], []
+                with cf.ThreadPoolExecutor(max_workers=args.workers) as ex:
+                    futs = {ex.submit(probe, ctrl, n["name"], url, args.timeout): n
+                            for n in pool}
+                    for f in cf.as_completed(futs):
+                        n = futs[f]
+                        d = f.result()
+                        if d is not None:
+                            got.append(dict(n, _delay=d))
+                        else:
+                            miss.append(n)
+                return got, miss
+
+            first, miss = run_pass(batch, args.url)
+            alive.extend(first)
+            # 很多节点屏蔽 cloudflare 但能过 gstatic, 用第二个地址捞回来
+            if miss and args.url2:
+                second, _ = run_pass(miss, args.url2)
+                alive.extend(second)
+                print(f"    [+] 第二轮(备用地址) 捞回 {len(second)} 个", flush=True)
         except Exception as e:  # noqa: BLE001
             print(f"    [!] 批次失败: {type(e).__name__}: {str(e)[:90]}",
                   file=sys.stderr)
