@@ -50,13 +50,67 @@ sources.txt                  ← 节点源清单（改这里增删源）
 scripts/aggregate.py         ← 主程序：抓取 → 去重 → 存活检测 → 输出
 scripts/parsers.py           ← 各协议 URI / Clash YAML 解析
 scripts/validate.py          ← 静态校验（剔除 mihomo 无法解析的节点）
+scripts/verify_http.py       ← 用 mihomo 内核做真实 HTTPS 握手验证
+scripts/manage_sources.py    ← 源清单维护：删死源 / 找新源 / 日期归一化
+candidates.txt               ← discover 用的候选仓库清单
 scripts/configgen.py         ← 生成 mihomo 配置（分组 + 分流规则）
 output/sub.txt               ← base64 订阅（自动生成）
 output/mihomo.yaml           ← mihomo 完整配置（自动生成）
 output/nodes.json            ← 节点明细，便于排查（自动生成，不提交）
 output/stats.json            ← 本次统计（自动生成）
-.github/workflows/daily.yml  ← 每日定时任务
+.github/workflows/daily.yml         ← 每日任务
+.github/workflows/weekly-sources.yml ← 每周源维护
 ```
+
+## 源清单的自动维护
+
+每周日 20:00 UTC（北京时间周一 04:00）自动跑一次 `Weekly source maintenance`：
+
+```
+1. --prune     逐个探测 sources.txt 里的链接
+                · 404 / 空响应 → 删除
+                · 连接失败 → 重试一次, 仍失败则注释保留（下轮再试）
+                · 按日期滚动的链接 → 自动改写成占位符
+2. --discover  从 candidates.txt 的 150+ 候选仓库 + GitHub 搜索
+                · 用一次 tree 请求列出一个仓库的全部文件
+                · 挑名字像订阅的（sub/node/clash/v2ray/...）
+                · 逐个验证能否解析出节点
+                · 可用的追加进 sources.txt（默认最多 100 个）
+```
+
+也可以手动跑：
+
+```bash
+python3 scripts/manage_sources.py --prune                      # 只删死源
+python3 scripts/manage_sources.py --discover --limit 100       # 只找新源
+python3 scripts/manage_sources.py --prune --discover           # 两个都跑
+
+# 本机 raw 被墙时带上镜像
+python3 scripts/manage_sources.py --prune --mirror https://gh-proxy.com/
+```
+
+### 日期滚动的链接写成占位符
+
+有些站点的订阅是每天换一个文件名，这类链接会被自动归一化成占位符，
+以后每天自动指向当天的文件，**不用再改清单**：
+
+```
+https://clashgithub.com/wp-content/uploads/rss/20261030.txt
+  → https://clashgithub.com/wp-content/uploads/rss/{Ymd}.txt
+
+https://sfdr.zaixianyouxi.dpdns.org/uploads/2026/10/20261030.txt
+  → https://sfdr.zaixianyouxi.dpdns.org/uploads/{Y}/{m}/{Ymd}.txt
+```
+
+支持的占位符：
+
+| 占位符 | 展开为 |
+|---|---|
+| `{Ymd}` | 20261030 |
+| `{Y}/{m}/{d}` | 2026/10/30 |
+| `{Y}-{m}-{d}` | 2026-10-30 |
+| `{Y}/{m}` | 2026/10 |
+| `{Y}` `{m}` `{d}` | 2026 / 10 / 30 |
 
 ## 增删节点源
 
