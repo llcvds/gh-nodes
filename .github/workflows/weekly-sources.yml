@@ -60,8 +60,13 @@ jobs:
 
       - name: Commit sources.txt
         run: |
+          set -e
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rebase --abort 2>/dev/null || true
+          git fetch origin main
+          # soft reset: 把 HEAD 挪到最新 main, 索引保留本次结果, 永不冲突
+          git reset --soft origin/main
           git add sources.txt
           if git diff --staged --quiet; then
             echo "源清单无变化, 跳过提交"
@@ -70,13 +75,12 @@ jobs:
           N=$(grep -cE '^https?://' sources.txt || echo 0)
           git commit -m "chore: 源清单周维护 (有效 ${N} 个) [$(date -u '+%Y-%m-%d')]"
           for i in 1 2 3; do
-            git pull --rebase --autostash origin main || true
-            if git push; then
-              echo "推送成功"
-              exit 0
+            if git push origin HEAD:main; then
+              echo "推送成功"; exit 0
             fi
-            echo "第 $i 次推送失败, 5s 后重试"
             sleep 5
+            git fetch origin main
+            git reset --soft origin/main
+            git add sources.txt
           done
-          echo "推送失败"
           exit 1
