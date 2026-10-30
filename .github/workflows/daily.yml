@@ -1,0 +1,88 @@
+name: Daily nodes
+
+on:
+  schedule:
+    # 每天 22:10 UTC = 北京时间 06:10 (避开整点拥挤)
+    - cron: "10 22 * * *"
+  workflow_dispatch: {}          # 支持手动触发
+  push:
+    paths:
+      - "sources.txt"            # 改源清单后立即重建
+      - "scripts/**"
+
+# 同一时间只跑一个, 避免两次运行互相覆盖
+concurrency:
+  group: daily-nodes
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  aggregate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Aggregate nodes
+        run: |
+          python3 scripts/aggregate.py \
+            --limit 4000 \
+            --concurrency 800 \
+            --probe-timeout 3 \
+            --workers 32
+        env:
+          PYTHONUNBUFFERED: "1"
+
+      - name: Verify outputs
+        run: |
+          python3 - <<'PY'
+          import base64, json, sys
+          from pathlib import Path
+
+          sub = Path("output/sub.txt")
+          yml = Path("output/mihomo.yaml")
+          if not sub.exists() or not yml.exists():
+              print("输出文件缺失")
+              sys.exit(1)
+
+          dec = base64.b64decode(sub.read_text().strip()).decode()
+          uris = [l for l in dec.splitlines() if l.strip()]
+          print(f"订阅 URI: {len(uris)} 条")
+          if not uris:
+              sys.exit("订阅为空")
+
+          stats = json.loads(Path("output/stats.json").read_text())
+          print(f"节点数: {stats['nodes_final']}")
+          print(f"协议:   {stats['protocols']}")
+          print(f"延迟:   最快 {stats['fastest_ms']}ms / 中位 {stats['median_ms']}ms")
+
+          # 名称唯一性检查 (mihomo 不接受重名)
+          nodes = json.loads(Path("output/nodes.json").read_text())
+          names = [n["name"] for n in nodes]
+          dup = len(names) - len(set(names))
+          if dup:
+              sys.exit(f"存在 {dup} 个重名节点")
+          print("名称唯一性: OK")
+          PY
+
+      - name: Commit & push
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add output/
+          if git diff --staged --quiet; then
+            echo "内容未变, 跳过提交"
+          else
+            N=$(python3 -c "import json;print(json.load(open('output/stats.json'))['nodes_final'])")
+            git commit -m "chore: 更新节点 ${N} 个 [$(date -u '+%Y-%m-%d %H:%M UTC')]"
+            git push
+          fi
