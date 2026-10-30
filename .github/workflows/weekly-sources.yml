@@ -1,0 +1,82 @@
+name: Weekly source maintenance
+
+on:
+  schedule:
+    # 每周日 20:00 UTC = 北京时间周一 04:00
+    # 安排在每日任务(06:10)之前, 当天就能用上新源
+    - cron: "0 20 * * 0"
+  workflow_dispatch: {}
+
+concurrency:
+  group: weekly-sources
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  maintain:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install deps
+        run: python3 -m pip install --quiet pyyaml
+
+      # ---- 1. 删死源 + 日期归一化 ----
+      - name: Prune dead sources
+        run: |
+          python3 scripts/manage_sources.py --prune --workers 32
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # ---- 2. 从候选仓库找新源 ----
+      - name: Discover new sources
+        run: |
+          python3 scripts/manage_sources.py --discover --limit 120 --workers 32
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # ---- 3. 汇总 ----
+      - name: Summary
+        run: |
+          N=$(grep -cE '^https?://' sources.txt || echo 0)
+          echo "当前有效源: $N 个"
+          echo "### 源维护结果" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**源总数**: $N" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          head -6 sources.txt >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+
+      - name: Commit sources.txt
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add sources.txt
+          if git diff --staged --quiet; then
+            echo "源清单无变化, 跳过提交"
+            exit 0
+          fi
+          N=$(grep -cE '^https?://' sources.txt || echo 0)
+          git commit -m "chore: 源清单周维护 (有效 ${N} 个) [$(date -u '+%Y-%m-%d')]"
+          for i in 1 2 3; do
+            git pull --rebase --autostash origin main || true
+            if git push; then
+              echo "推送成功"
+              exit 0
+            fi
+            echo "第 $i 次推送失败, 5s 后重试"
+            sleep 5
+          done
+          echo "推送失败"
+          exit 1
