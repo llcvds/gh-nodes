@@ -119,8 +119,19 @@ jobs:
           git add output/
           if git diff --staged --quiet; then
             echo "内容未变, 跳过提交"
-          else
-            N=$(python3 -c "import json;print(json.load(open('output/stats.json'))['nodes_final'])")
-            git commit -m "chore: 更新节点 ${N} 个 [$(date -u '+%Y-%m-%d %H:%M UTC')]"
-            git push
+            exit 0
           fi
+          N=$(python3 -c "import json;print(json.load(open('output/stats.json'))['nodes_final'])")
+          git commit -m "chore: 更新节点 ${N} 个 [$(date -u '+%Y-%m-%d %H:%M UTC')]"
+          # 运行期间远端可能被其它提交推进, 先 rebase 再推, 失败重试 3 次
+          for i in 1 2 3; do
+            git pull --rebase --autostash origin main || true
+            if git push; then
+              echo "推送成功"
+              exit 0
+            fi
+            echo "第 $i 次推送失败, 5s 后重试"
+            sleep 5
+          done
+          echo "推送失败"
+          exit 1
