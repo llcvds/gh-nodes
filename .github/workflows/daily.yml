@@ -31,6 +31,11 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Install deps
+        run: |
+          python3 -m pip install --quiet pyyaml
+          python3 -c "import yaml; print('pyyaml', yaml.__version__)"
+
       # ---- 1. 抓取 + 去重 + 静态校验 + TCP 粗筛 ----
       # TCP 只是粗筛: 快, 但会把 Cloudflare anycast 的节点全判为可用
       - name: Aggregate (TCP prefilter)
