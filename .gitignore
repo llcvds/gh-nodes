@@ -1,0 +1,3 @@
+output/nodes.json
+__pycache__/
+*.pyc
