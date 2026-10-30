@@ -55,6 +55,14 @@ def api(ctrl: str, path: str, timeout: int = 30) -> dict:
     return json.loads(raw) if raw else {}
 
 
+def assign_vname(p: dict, idx: int) -> str:
+    """给节点分配批内唯一名。重名的追加 #2 #3 ..."""
+    base = str(p.get("name") or f"n{idx}")
+    uniq = f"{base}__v{idx}"
+    p["_vname"] = uniq
+    return uniq
+
+
 def start_mihomo(binary: str, workdir: str, proxies: list[dict],
                  ctrl: int) -> subprocess.Popen:
     """最小配置: 只有 proxies 和 select 组, 不引用 geo, 避免 CI 里下载数据库。
@@ -63,7 +71,12 @@ def start_mihomo(binary: str, workdir: str, proxies: list[dict],
     而 JSON 本身是 YAML 1.2 的子集, mihomo 用的是 yaml.v3, 能直接解析 JSON。
     这样就少一个 CI 依赖。
     """
-    names = [p["name"] for p in proxies]
+    # 关键: 同一批里可能有**重名但配置不同**的节点 (上游给的 name 一样)。
+    # mihomo 对重名是硬拒绝 —— 整批配置解析失败, 报
+    #   msg="proxy vless 1.2.3.4:443 is the duplicate name"
+    # 原本这样就整批 1800 个节点全丢。这里给每个节点分配批内唯一名 _vname,
+    # 只用于内核内部识别, 不动业务字段 name。
+    names = [assign_vname(p, i) for i, p in enumerate(proxies)]
     cfg = {
         "mixed-port": free_port(),
         "allow-lan": False,
@@ -77,7 +90,8 @@ def start_mihomo(binary: str, workdir: str, proxies: list[dict],
         "find-process-mode": "off",
         "profile": {"store-selected": False, "store-fake-ip": False},
         "dns": {"enable": False},
-        "proxies": [{k: v for k, v in p.items() if not k.startswith("_")}
+        "proxies": [{("name" if k == "_vname" else k): v
+                     for k, v in p.items() if not k.startswith("_") or k == "_vname"}
                     for p in proxies],
         "proxy-groups": [{"name": GROUP, "type": "select", "proxies": names}],
         "rules": ["MATCH," + GROUP],
@@ -145,7 +159,8 @@ def main() -> int:
             def run_pass(pool: list[dict], url: str) -> list[dict]:
                 got, miss = [], []
                 with cf.ThreadPoolExecutor(max_workers=args.workers) as ex:
-                    futs = {ex.submit(probe, ctrl, n["name"], url, args.timeout): n
+                    futs = {ex.submit(probe, ctrl, n.get("_vname") or n["name"],
+                                      url, args.timeout): n
                             for n in pool}
                     for f in cf.as_completed(futs):
                         n = futs[f]
