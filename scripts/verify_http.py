@@ -90,9 +90,7 @@ def start_mihomo(binary: str, workdir: str, proxies: list[dict],
         "find-process-mode": "off",
         "profile": {"store-selected": False, "store-fake-ip": False},
         "dns": {"enable": False},
-        "proxies": [{("name" if k == "_vname" else k): v
-                     for k, v in p.items() if not k.startswith("_") or k == "_vname"}
-                    for p in proxies],
+        "proxies": parse_proxies(proxies),
         "proxy-groups": [{"name": GROUP, "type": "select", "proxies": names}],
         "rules": ["MATCH," + GROUP],
     }
@@ -113,6 +111,57 @@ def start_mihomo(binary: str, workdir: str, proxies: list[dict],
             time.sleep(0.25)
     proc.kill()
     raise RuntimeError("mihomo 启动超时")
+
+
+def _batch_ok(binary: str, batch: list[dict]) -> bool:
+    """用 mihomo -t 快速判断这批能不能被解析 (不真正起代理)"""
+    wd = tempfile.mkdtemp(prefix="mihomo-t-")
+    try:
+        cfg_path = os.path.join(wd, "config.yaml")
+        with open(cfg_path, "w", encoding="utf-8") as fh:
+            json.dump({"proxies": parse_proxies(batch),
+                       "proxy-groups": [{"name": GROUP, "type": "select",
+                                         "proxies": [p["_vname"] for p in batch]}],
+                       "rules": ["MATCH," + GROUP]}, fh, ensure_ascii=False)
+        r = subprocess.run([binary, "-t", "-d", wd, "-f", cfg_path],
+                           capture_output=True, timeout=120)
+        return r.returncode == 0
+    except Exception:  # noqa: BLE001
+        return False
+    finally:
+        shutil.rmtree(wd, ignore_errors=True)
+
+
+def drop_poison(binary: str, batch: list[dict], depth: int = 0) -> list[dict]:
+    """二分剔除让配置无法解析的节点。
+
+    重名已经在 assign_vname 里解决了; 这里兜住其它会让内核拒绝的节点
+    (字段非法 / 协议不支持 / 参数越界)。坏节点只占少数, 二分 log 次就够。
+    """
+    if not batch:
+        return []
+    for p in batch:
+        p.pop("_vname", None)
+    for i, p in enumerate(batch):      # 重新分配批内唯一名
+        assign_vname(p, i)
+    if _batch_ok(binary, batch):
+        return batch
+    if len(batch) == 1 or depth >= 8:
+        print(f"    [!] 剔除无法解析的节点: {batch[0].get('type')} "
+              f"{batch[0].get('server')}:{batch[0].get('port')}", file=sys.stderr)
+        return []
+    mid = len(batch) // 2
+    return drop_poison(binary, batch[:mid], depth + 1) + \
+           drop_poison(binary, batch[mid:], depth + 1)
+
+
+def parse_proxies(proxies: list[dict]) -> list[dict]:
+    out = []
+    for p in proxies:
+        d = {("name" if k == "_vname" else k): v
+             for k, v in p.items() if not k.startswith("_") or k == "_vname"}
+        out.append(d)
+    return out
 
 
 def probe(ctrl: str, name: str, url: str, timeout_ms: int) -> int | None:
@@ -155,6 +204,9 @@ def main() -> int:
         ctrl = free_port()
         proc = None
         try:
+            # 个别废节点会让整个配置解析失败 (比如字段非法)。
+            # 二分重试, 避免 1800 个好节点被 1 个坏节点连坐。
+            batch = drop_poison(args.mihomo, batch, depth=0)
             proc = start_mihomo(args.mihomo, wd, batch, ctrl)
             def run_pass(pool: list[dict], url: str) -> list[dict]:
                 got, miss = [], []
