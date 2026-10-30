@@ -130,11 +130,35 @@ mihomo 加载配置是**全有或全无**：`proxies` 里只要有 1 个节点�
 
 `validate.py` 会在输出前把这些逐条剔掉。
 
+## 验证视角（很重要）
+
+节点存活**取决于从哪台机器去连**。本项目在 GitHub Actions（美国机房）上做真实
+HTTPS 验证，所以「通过」代表**从美国出口可用**。
+
+实测同一批节点：
+
+| 验证视角 | 通过率 |
+|---|---|
+| GitHub Actions（美国机房） | 2016 / 28343 = 7.1% |
+| 本机（中国移动） | 4 / 20 抽测 = 20% |
+
+两边不重叠是正常的：美国能连的国内可能被墙，国内能连的美国也可能超时。
+
+如果你主要在国内用，**在本地也跑一遍 `verify_http.py`** 更贴近你的实际网络：
+
+```bash
+python3 scripts/aggregate.py --limit 30000        # 抓取 + TCP 粗筛
+python3 scripts/verify_http.py --out output --mihomo ./bin/mihomo --keep 1200
+python3 scripts/aggregate.py --from-json output/nodes.json --limit 1200
+```
+
 ## 已知限制
 
-- **只做 TCP 连通性检测**，不验证代理协议握手是否成功。
-  TCP 能连上但密码错误/协议不匹配的节点仍会保留。要精确验证需在 CI 里跑
-  mihomo 之类的内核逐个实测，成本高得多。
+- 已用 mihomo 内核做**真实 HTTPS 握手验证**（`scripts/verify_http.py`），
+  不是只看 TCP 通不通。这是必要的：TCP 检测会把 Cloudflare anycast 的节点
+  全判为可用（443 端口秒开、延迟 0~1ms），实测 49% 的「存活」里
+  真正能握手的只有 7%。
+- 验证只测「能否真实访问一个 HTTPS 站点」，不测长期稳定性。
 - 免费节点的生命周期通常只有几小时到几天，即使每日更新也可能有大量失效。
 - 这些是公开分享的第三方节点，**不要用来登录网银、邮箱等敏感账号**。
 
