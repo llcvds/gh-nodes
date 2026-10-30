@@ -41,7 +41,7 @@ jobs:
       - name: Aggregate (TCP prefilter)
         run: |
           python3 scripts/aggregate.py \
-            --limit 6000 \
+            --limit 30000 \
             --concurrency 800 \
             --probe-timeout 3 \
             --workers 32
@@ -67,14 +67,14 @@ jobs:
             --out output \
             --mihomo ./mihomo \
             --workers 150 \
-            --batch 2000 \
+            --batch 2500 \
             --timeout 5000 \
-            --keep 1500
+            --keep 1200
 
       # ---- 3. 用验证后的节点重新生成订阅 ----
       - name: Rebuild outputs
         run: |
-          python3 scripts/aggregate.py --from-json output/nodes.json --limit 1500
+          python3 scripts/aggregate.py --from-json output/nodes.json --limit 1200
 
       - name: Verify outputs
         run: |
