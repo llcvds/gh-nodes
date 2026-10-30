@@ -2,15 +2,14 @@ name: Daily nodes
 
 on:
   schedule:
-    # 每天 22:10 UTC = 北京时间 06:10 (避开整点拥挤)
+    # 每天 22:10 UTC = 北京时间 06:10
     - cron: "10 22 * * *"
-  workflow_dispatch: {}          # 支持手动触发
+  workflow_dispatch: {}
   push:
     paths:
-      - "sources.txt"            # 改源清单后立即重建
+      - "sources.txt"
       - "scripts/**"
 
-# 同一时间只跑一个, 避免两次运行互相覆盖
 concurrency:
   group: daily-nodes
   cancel-in-progress: false
@@ -21,7 +20,7 @@ permissions:
 jobs:
   aggregate:
     runs-on: ubuntu-latest
-    timeout-minutes: 40
+    timeout-minutes: 50
 
     steps:
       - name: Checkout
@@ -32,15 +31,45 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Aggregate nodes
+      # ---- 1. 抓取 + 去重 + 静态校验 + TCP 粗筛 ----
+      # TCP 只是粗筛: 快, 但会把 Cloudflare anycast 的节点全判为可用
+      - name: Aggregate (TCP prefilter)
         run: |
           python3 scripts/aggregate.py \
-            --limit 4000 \
+            --limit 6000 \
             --concurrency 800 \
             --probe-timeout 3 \
             --workers 32
+
+      # ---- 2. 装 mihomo 内核, 做真实握手验证 ----
+      - name: Install mihomo
+        run: |
+          set -euo pipefail
+          URL=$(gh api repos/MetaCubeX/mihomo/releases/latest \
+                --jq '.assets[].browser_download_url' \
+                | grep -E 'linux-amd64.*\.gz$' | grep -v compatible | head -1)
+          echo "下载: $URL"
+          curl -sSL --retry 3 -o mihomo.gz "$URL"
+          gunzip -f mihomo.gz
+          chmod +x mihomo
+          ./mihomo -v
         env:
-          PYTHONUNBUFFERED: "1"
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Verify real HTTPS handshake
+        run: |
+          python3 scripts/verify_http.py \
+            --out output \
+            --mihomo ./mihomo \
+            --workers 150 \
+            --batch 2000 \
+            --timeout 5000 \
+            --keep 1500
+
+      # ---- 3. 用验证后的节点重新生成订阅 ----
+      - name: Rebuild outputs
+        run: |
+          python3 scripts/aggregate.py --from-json output/nodes.json --limit 1500
 
       - name: Verify outputs
         run: |
@@ -51,8 +80,7 @@ jobs:
           sub = Path("output/sub.txt")
           yml = Path("output/mihomo.yaml")
           if not sub.exists() or not yml.exists():
-              print("输出文件缺失")
-              sys.exit(1)
+              sys.exit("输出文件缺失")
 
           dec = base64.b64decode(sub.read_text().strip()).decode()
           uris = [l for l in dec.splitlines() if l.strip()]
@@ -65,13 +93,18 @@ jobs:
           print(f"协议:   {stats['protocols']}")
           print(f"延迟:   最快 {stats['fastest_ms']}ms / 中位 {stats['median_ms']}ms")
 
-          # 名称唯一性检查 (mihomo 不接受重名)
           nodes = json.loads(Path("output/nodes.json").read_text())
           names = [n["name"] for n in nodes]
           dup = len(names) - len(set(names))
           if dup:
               sys.exit(f"存在 {dup} 个重名节点")
           print("名称唯一性: OK")
+
+          # 延迟为 0 说明验证没生效 (CF anycast 特征)
+          zero = sum(1 for n in nodes if n.get("_delay", 1) == 0)
+          print(f"零延迟节点: {zero}")
+          if zero > len(nodes) * 0.2:
+              sys.exit("零延迟节点过多, 真实验证可能未生效")
           PY
 
       - name: Commit & push
