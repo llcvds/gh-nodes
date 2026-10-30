@@ -1,6 +1,6 @@
 # ============================================================
 #  mihomo / Clash.Meta 配置 —— 由 build_config.py 自动生成
-#  节点数: 74  (全部经过真实 mihomo 连通性实测)
+#  节点数: 43  (全部经过真实 mihomo 连通性实测)
 #  用法: mihomo -d . -f mihomo.yaml
 # ============================================================
 mixed-port: 7890
@@ -54,80 +54,49 @@ dns:
     geoip-code: CN
 
 proxies:
-- {"name": "🇭🇰 HTTP 165.154.7.156:8888 M", "type": "http", "server": "165.154.7.156", "port": 8888, "udp": false}
-- {"name": "U⚪🏳️ukn[📺🎭📦🔍]_dokng.com_a5ba9bd7", "port": 31343, "server": "120.232.204.58", "skip-cert-verify": true, "tls": true, "type": "http"}
-- {"name": "[OpenRay] 🇭🇰HK-28", "type": "http", "server": "43.161.254.16", "port": 3128, "skip-cert-verify": true}
-- {"name": "🇯🇵JP_21.3MB/s", "password": "None", "port": 343, "server": "133.18.200.207", "skip-cert-verify": true, "tls": true, "type": "http"}
-- {"name": "🇰🇷 SOCKS5 121.169.46.116:1090 M", "type": "socks5", "server": "121.169.46.116", "port": 1090, "udp": false}
-- {"name": "C🟠🇸🇬hos_dokng.com_3650d1d3", "password": "1234", "port": 2080, "server": "13.212.14.88", "skip-cert-verify": true, "type": "http", "username": "1234"}
-- {"name": "C🟠🇸🇬hos[🎭🎪]_dokng.com_d363cfc0", "password": "1234", "port": 2080, "server": "13.250.6.200", "skip-cert-verify": true, "type": "http", "udp": true, "username": "1234"}
-- {"port": 1090, "server": "121.169.46.116", "type": "socks5", "username": "VDJjbE0wUWxNMFE2Og==", "name": "KR - zhuhai.uk [e1811b682ddc4a7e]"}
-- {"name": "C🟠🇸🇬hos[🤖🔍]_dokng.com_51a7e463", "password": "1234", "port": 2080, "server": "13.250.6.249", "skip-cert-verify": true, "type": "http", "username": "1234"}
-- {"name": "🇮🇩 HTTP 103.158.97.82:8080 M", "type": "http", "server": "103.158.97.82", "port": 8080, "udp": false}
-- {"name": "C🟠🇸🇬hos[📺🎪🔍]_dokng.com_38117f1c", "password": "1234", "port": 2080, "server": "13.229.91.101", "skip-cert-verify": true, "type": "http", "username": "1234"}
-- {"name": "🇹🇭 HTTP 124.122.253.182:8080 M", "type": "http", "server": "124.122.253.182", "port": 8080, "udp": false}
-- {"name": "[OpenRay] 🇻🇳VN-135", "type": "socks5", "server": "14.225.205.152", "port": 1080, "username": "", "password": "", "udp": true}
-- {"name": "[OpenRay] 🇹🇭TH-109", "type": "http", "server": "43.229.79.239", "port": 8080, "skip-cert-verify": true}
-- {"name": "D🔴🇫🇷hos[🎬🤖📺🎭]_dokng.com_09592fae", "port": 8090, "server": "80.124.109.22", "skip-cert-verify": true, "tls": true, "type": "http"}
-- {"client-fingerprint": "chrome", "flow": "xtls-rprx-vision", "name": "vless-1945511685", "network": "tcp", "port": 443, "reality-opts": {"public-key": "SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc", "short-id": ""}, "server": "163.245.42.132", "servername": "mother-earth.fyi", "tls": true, "type": "vless", "udp": true, "uuid": "b9bfa54d-bc44-4592-a6d6-89a9665d286f"}
-- {"name": "🇳🇱NL_63573KB/sR002-260618 [11147645fc19]", "password": "null", "port": 443, "server": "103.97.88.154", "skip-cert-verify": true, "sub_tag": "R002-260618", "tls": true, "type": "http", "udp": true, "username": "null"}
-- {"name": "D🔴🇳🇱hos[🎬🤖📺🎭]_dokng.com_f89d41d4", "port": 443, "server": "103.97.88.154", "skip-cert-verify": true, "sni": "4a8c2906c96058315dffbc2b0e7ff19b-98005bea43f9ac33.apache-iv.com", "tls": true, "type": "http"}
-- {"name": "🇩🇪DE_19758KB/sR002-260618 [92abb46579b9]", "port": 443, "server": "159.69.94.125", "skip-cert-verify": true, "sub_tag": "R002-260618", "tls": true, "type": "http", "udp": true}
-- {"name": "D🔴🇮🇳hos[🤖📺]_dokng.com_1b23a856", "port": 443, "server": "110.173.188.221", "skip-cert-verify": true, "tls": true, "type": "http"}
-- {"name": "D🔴🇫🇷hos[🎬🤖📺🎭]_dokng.com_13bb1fbc", "port": 443, "server": "103.82.101.43", "skip-cert-verify": true, "sni": "76d1d3ecadca44efa2339867d7dfc9a1-8e928736d0f8dbdc.apache-iv.com", "tls": true, "type": "http"}
-- {"name": "🇫🇷FR_405.7MB/sR002-260618 [7b7481c3cec7]", "port": 6103, "server": "87.98.174.157", "skip-cert-verify": true, "sub_tag": "R002-260618", "tls": true, "type": "http", "udp": true}
-- {"name": "[OpenRay] 🇳🇱NL-161", "type": "http", "server": "144.124.251.24", "port": 10232, "skip-cert-verify": true}
-- {"name": "[OpenRay] 🇳🇱NL-491", "type": "http", "server": "144.124.251.24", "port": 10167, "skip-cert-verify": true}
-- {"name": "D🔴🇺🇸hos[🎬🤖📺🎭]_dokng.com_6c51c4d9", "port": 443, "server": "137.175.22.16", "skip-cert-verify": true, "tls": true, "type": "http"}
-- {"name": "D🔴🇫🇷hos[🎬🤖📺🎭]_dokng.com_4eaea5d3", "password": null, "port": 443, "server": "51.210.167.149", "skip-cert-verify": true, "tls": true, "type": "http", "username": null}
-- {"name": "[OpenRay] 🇳🇱NL-677", "type": "http", "server": "144.124.251.24", "port": 11266, "skip-cert-verify": true}
-- {"name": "[OpenRay] 🇳🇱NL-551", "type": "http", "server": "144.124.251.24", "port": 10747, "skip-cert-verify": true}
-- {"name": "[OpenRay] 🇳🇱NL-323", "type": "http", "server": "144.124.251.24", "port": 10222, "skip-cert-verify": true}
-- {"name": "C🟠🇮🇪hos[🎬🤖📺🎭]_dokng.com_3374aeb9", "password": null, "port": 443, "server": "34.249.214.108", "skip-cert-verify": true, "tls": true, "type": "http", "username": null}
-- {"name": "[OpenRay] 🇳🇱NL-18", "type": "http", "server": "144.124.251.24", "port": 10594, "skip-cert-verify": true}
-- {"name": "[OpenRay] 🇳🇱NL-415", "type": "http", "server": "144.124.251.24", "port": 10551, "skip-cert-verify": true}
-- {"name": "[OpenRay] 🇳🇱NL-245", "type": "http", "server": "144.124.251.24", "port": 10814, "skip-cert-verify": true}
-- {"name": "D🔴🇵🇭mob[🤖📺🎭🎪]_dokng.com_3e63267a", "port": 2020, "server": "180.191.153.75", "skip-cert-verify": true, "type": "http"}
-- {"name": "[OpenRay] 🇵🇭PH-45", "type": "http", "server": "49.149.215.58", "port": 8082, "skip-cert-verify": true}
-- {"name": "[OpenRay] 🇳🇱NL-405", "type": "http", "server": "144.124.251.24", "port": 11280, "skip-cert-verify": true}
-- {"name": "[OpenRay] 🇳🇱NL-653", "type": "http", "server": "144.124.251.24", "port": 10216, "skip-cert-verify": true}
-- {"name": "🇺🇸US_227816KB/sP002-260618 [7feeec8f30cf]", "password": "None", "port": 9002, "server": "138.199.35.212", "skip-cert-verify": true, "sub_tag": "P002-260618", "tls": true, "type": "http", "udp": true}
-- {"name": "🇺🇸US_92725KB/sP002-260618 [4cc71e0918ac]", "password": "None", "port": 9002, "server": "138.199.35.216", "skip-cert-verify": true, "sub_tag": "P002-260618", "tls": true, "type": "http", "udp": true}
-- {"name": "🇺🇸US_279816KB/sP002-260618 [8d81cfcb4761]", "password": "null", "port": 9002, "server": "138.199.35.218", "skip-cert-verify": true, "sub_tag": "P002-260618", "tls": true, "type": "http", "udp": true, "username": "null"}
-- {"name": "D🔴🇺🇸hos[🎬🤖📺🎭]_dokng.com_c09c3f93", "password": "e4b72b531a2d10900519", "port": 443, "server": "162.243.146.243", "sni": "a2f392f3.acsnet.co", "tls": true, "type": "http", "username": "testuser1"}
+- {"name": "C🟠🇺🇸hos[🎬🤖📺🎭]_dokng.com_3c84b2dc", "password": null, "port": 9443, "server": "154.47.25.78", "skip-cert-verify": true, "tls": true, "type": "http", "username": null}
+- {"name": "US#47", "type": "trojan", "server": "216.152.155.131", "port": 443, "password": "0ab6c98dae3b48e8b9c4a776b6c9c19a", "udp": true, "skip-cert-verify": true, "network": "tcp", "tls": true}
+- {"name": "D🔴🇺🇸hos[🎬🤖📺🎭]_dokng.com_c3322f2c", "password": null, "port": 443, "server": "121.127.34.82", "skip-cert-verify": true, "tls": true, "type": "http", "username": null}
 - {"name": "D🔴🇰🇷hos[🎬🤖📺🎭]_dokng.com_0618cdac", "password": "None", "port": 443, "server": "172.64.68.89", "skip-cert-verify": true, "tls": true, "type": "http"}
-- {"name": "🇷🇴RO_972.0MB/sR002-260618 [b13737a97166]", "port": 9002, "server": "193.176.84.18", "skip-cert-verify": true, "sub_tag": "R002-260618", "tls": true, "type": "http", "udp": true}
-- {"name": "🇺🇸US_125730KB/sR002-260618 [2d2bb008072d]", "password": "null", "port": 9002, "server": "138.199.35.212", "skip-cert-verify": true, "sub_tag": "R002-260618", "tls": true, "type": "http", "udp": true, "username": "null"}
-- {"name": "[OpenRay] 🇹🇷TR-107", "type": "http", "server": "185.195.254.72", "port": 5432, "skip-cert-verify": true}
-- {"name": "🇺🇸US_57860KB/sR002-260618 [4987e043a0ba]", "port": 9002, "server": "138.199.35.212", "skip-cert-verify": true, "sub_tag": "R002-260618", "tls": true, "type": "http", "udp": true}
-- {"name": "D🔴🇺🇸hos[🎬🤖📺🎭]_dokng.com_4af4a28d", "password": null, "port": 443, "server": "129.153.93.183", "skip-cert-verify": true, "tls": true, "type": "http", "username": null}
-- {"name": "D🔴🇩🇪hos[🎬🤖📺🎭]_dokng.com_024b080b", "port": 443, "server": "176.94.74.21", "skip-cert-verify": true, "tls": true, "type": "http"}
-- {"client-fingerprint": "firefox", "flow": "xtls-rprx-vision", "name": "vless-1880258570", "network": "tcp", "port": 443, "reality-opts": {"public-key": "Im1i3eUtm7uDxUOA0rNWef9bILxsBvK_ElfejZTpQW0", "short-id": ""}, "server": "72.56.4.84", "servername": "absolute-disaster.org", "tls": true, "type": "vless", "udp": true, "uuid": "Fluffy_VPN-zKZUa4Ie"}
-- {"name": "A🟢🇫🇷res[🎬🤖📺🎭]_dokng.com_071a491a", "port": 443, "server": "62.210.27.111", "skip-cert-verify": true, "tls": true, "type": "http"}
-- {"name": "[OpenRay] 🇳🇱NL-510", "type": "http", "server": "144.124.251.24", "port": 10001, "skip-cert-verify": true}
-- {"name": "[OpenRay] 🇨🇳CN-93", "type": "http", "server": "8.163.24.236", "port": 8080, "skip-cert-verify": true}
-- {"name": "D🔴🇷🇺hos[🎪✨🎞️📦]_dokng.com_840f7b19", "password": null, "port": 8443, "server": "87.242.85.187", "skip-cert-verify": true, "tls": true, "type": "http", "username": null}
-- {"name": "[OpenRay] 🇨🇳CN-74", "type": "http", "server": "221.221.154.156", "port": 8888, "skip-cert-verify": true}
-- {"name": "[OpenRay] 🇨🇳CN-108", "type": "http", "server": "123.57.213.24", "port": 3539, "skip-cert-verify": true}
-- {"name": "[OpenRay] 🇨🇳CN-91", "type": "http", "server": "111.192.42.132", "port": 8888, "skip-cert-verify": true}
-- {"name": "🇳🇱NL_1886.2MB/sR002-260618 [e136058b2502]", "port": 443, "server": "51.158.243.91", "skip-cert-verify": true, "sub_tag": "R002-260618", "tls": true, "type": "http", "udp": true}
-- {"name": "[OpenRay] 🇨🇳CN-5", "type": "http", "server": "114.253.6.84", "port": 8888, "skip-cert-verify": true}
-- {"name": "[OpenRay] 🇨🇳CN-9", "type": "http", "server": "114.248.179.223", "port": 8888, "skip-cert-verify": true}
-- {"name": "🇱🇻LV_62.3MB/sR002-260618 [818b03a8a270]", "port": 443, "server": "185.219.159.16", "skip-cert-verify": true, "sub_tag": "R002-260618", "tls": true, "type": "http", "udp": true}
-- {"name": "HK 🇭🇰 @Raydikalx 702A35", "server": "38.76.180.144", "port": 1443, "type": "vless", "uuid": "d98b67d4-024a-4bba-91e2-e6ebece6df11", "udp": true, "tls": false, "servername": "38.76.180.144", "client-fingerprint": "chrome", "network": "ws", "ws-opts": {"path": "/vless-ws", "headers": {"Host": "38.76.180.144"}}}
-- {"name": "🇰🇷KR²_10.7MB/sGPTXHistory [67fc8d504db5]", "type": "socks5", "server": "121.169.46.116", "port": 1090, "username": "T2clM0QlM0Q6", "password": "", "udp": true}
-- {"name": "[OpenRay] 🇨🇳CN-135", "type": "http", "server": "123.121.115.69", "port": 8888, "skip-cert-verify": true}
-- {"name": "[OpenRay] 🇨🇳CN-112", "type": "http", "server": "111.192.62.72", "port": 8888, "skip-cert-verify": true}
-- {"name": "[OpenRay] 🇨🇳CN-118", "type": "http", "server": "39.100.103.171", "port": 21056, "skip-cert-verify": true}
-- {"name": "[OpenRay] 🇨🇳CN-51", "type": "http", "server": "47.121.139.13", "port": 3128, "skip-cert-verify": true}
-- {"name": "[OpenRay] 🇨🇳CN-114", "type": "http", "server": "123.121.140.72", "port": 8888, "skip-cert-verify": true}
-- {"name": "[OpenRay] 🇨🇳CN-26", "type": "http", "server": "123.121.134.141", "port": 8888, "skip-cert-verify": true}
-- {"name": "[OpenRay] 🇮🇩ID-407", "type": "http", "server": "108.137.124.195", "port": 9358, "skip-cert-verify": true}
-- {"name": "[OpenRay] 🇨🇳CN-138", "type": "http", "server": "221.221.150.139", "port": 8888, "skip-cert-verify": true}
-- {"name": "🇺🇸US_32898KB/sR002-260618 [9862f21df803]", "port": 443, "server": "38.28.185.163", "skip-cert-verify": true, "sub_tag": "R002-260618", "tls": true, "type": "http", "udp": true}
-- {"name": "🇺🇸US_360229KB/sR002-260618 [c3d5eeffc341]", "port": 443, "server": "38.28.185.207", "skip-cert-verify": true, "sub_tag": "R002-260618", "tls": true, "type": "http", "udp": true}
-- {"name": "🇭🇰 SOCKS5 123.58.219.171:10808 M", "type": "socks5", "server": "123.58.219.171", "port": 10808, "udp": false}
-- {"name": "🇺🇸US_336221KB/sR002-260618 [f4caa26d30c3]", "port": 443, "server": "38.28.185.222", "skip-cert-verify": true, "sub_tag": "R002-260618", "tls": true, "type": "http", "udp": true}
+- {"name": "A🟢🇺🇸res[🎬🤖📺🎭]_dokng.com_cfdbfd42", "port": 443, "server": "193.239.236.134", "skip-cert-verify": true, "tls": true, "type": "http"}
+- {"name": "B🟡🇺🇸biz[🎬🤖📺🎭]_dokng.com_e4a4c124", "password": "None", "port": 443, "server": "12.202.180.10", "skip-cert-verify": true, "sub_tag": "K001-260618", "tls": true, "type": "http", "udp": true, "username": ""}
+- {"name": "D🔴🇰🇷hos[🎬🤖📺🎭]_dokng.com_a38c7e22", "password": null, "port": 443, "server": "172.64.69.89", "skip-cert-verify": true, "tls": true, "type": "http", "username": null}
+- {"name": "D🔴🇺🇸hos[🎬🤖📺🎭]_dokng.com_defefaab", "password": "None", "port": 443, "server": "121.127.34.82", "skip-cert-verify": true, "tls": true, "type": "http"}
+- {"name": "🇺🇸US_21812KB/sR002-260618 [42475c556145]", "port": 443, "server": "12.202.180.10", "skip-cert-verify": true, "sub_tag": "R002-260618", "tls": true, "type": "http", "udp": true}
+- {"name": "US#105", "type": "vless", "server": "146.75.57.238", "port": 443, "uuid": "e9a9d2ba-8c33-4e5e-a903-efa595db2fff", "udp": true, "network": "ws", "ws-opts": {"path": "/", "headers": {"Host": "copy_az_channel_NUFiLTER_17i.global.ssl.fastly.net."}}, "tls": true, "servername": "cdn.akamai.steamstatic.com", "skip-cert-verify": true}
+- {"name": "US#106", "type": "vless", "server": "146.75.59.186", "port": 443, "uuid": "e9a9d2ba-8c33-4e5e-a903-efa595db2fff", "udp": true, "network": "ws", "ws-opts": {"path": "/", "headers": {"Host": "copy_az_channel_NUFiLTER_6i.global.ssl.fastly.net."}}, "tls": true, "servername": "firefox.com", "skip-cert-verify": true}
+- {"name": "US#108", "type": "vless", "server": "199.232.78.160", "port": 443, "uuid": "e9a9d2ba-8c33-4e5e-a903-efa595db2fff", "udp": true, "network": "ws", "ws-opts": {"path": "/", "headers": {"Host": "copy_az_channel_NUFiLTER_10i.global.ssl.fastly.net."}}, "tls": true, "servername": "firefox.com", "skip-cert-verify": true}
+- {"name": "CA 🇨🇦 @Raydikalx F965E4", "type": "vmess", "server": "188.114.96.1", "port": 443, "uuid": "80be2deb-3b27-4775-9bd1-7f2a2b9c261b", "alterId": 0, "cipher": "auto", "udp": true, "network": "ws", "ws-opts": {"path": "/truth", "headers": {"Host": "www.windowsmsidownloads.com"}}, "tls": true, "servername": "www.windowsmsidownloads.com", "skip-cert-verify": true}
+- {"name": "vless-1946062464", "network": "raw", "port": 18580, "server": "108.61.119.63", "servername": "us007.zestapp778.com", "skip-cert-verify": false, "tls": true, "type": "vless", "udp": true, "uuid": "e9a8144e-5237-488a-afb1-9ca3d8d54c80"}
+- {"cipher": "2022-blake3-aes-128-gcm", "name": "C🟠🇺🇸hos[🤖📺🎪✨]_dokng.com_17598770", "password": "YTE1ZWU4ZTEyZjc3YmEzZA==:NjRjZGI3OTgtZWUyMS00OA==", "plugin": "gost-plugin", "plugin-opts": {"host": "ccus3.7777792.xyz", "mode": "websocket", "mux": true, "path": "/api/v1/stream", "tls": false}, "port": 80, "server": "104.18.6.131", "type": "ss", "udp": true, "udp-over-tcp": true, "udp-over-tcp-version": 2}
+- {"name": "CA#56", "type": "vless", "server": "104.21.63.28", "port": 443, "uuid": "4c0b7280-76bb-495c-9c8b-f05712ebf805", "udp": true, "network": "ws", "ws-opts": {"path": "/", "headers": {"Host": "youxuanku.kdns.fr"}}, "tls": true, "servername": "youxuanku.kdns.fr", "skip-cert-verify": true}
+- {"name": "CA#58", "type": "vless", "server": "188.114.97.6", "port": 443, "uuid": "4c0b7280-76bb-495c-9c8b-f05712ebf805", "udp": true, "network": "ws", "ws-opts": {"path": "/", "headers": {"Host": "youxuanku.kdns.fr"}}, "tls": true, "servername": "youxuanku.kdns.fr", "skip-cert-verify": true}
+- {"name": "CA#57", "type": "vless", "server": "172.67.142.169", "port": 443, "uuid": "4c0b7280-76bb-495c-9c8b-f05712ebf805", "udp": true, "network": "ws", "ws-opts": {"path": "/", "headers": {"Host": "youxuanku.kdns.fr"}}, "tls": true, "servername": "youxuanku.kdns.fr", "skip-cert-verify": true}
+- {"name": "US#107", "type": "vless", "server": "199.232.78.159", "port": 443, "uuid": "e9a9d2ba-8c33-4e5e-a903-efa595db2fff", "udp": true, "network": "ws", "ws-opts": {"path": "/", "headers": {"Host": "copy_az_channel_NUFiLTER_8i.global.ssl.fastly.net."}}, "tls": true, "servername": "cdn.akamai.steamstatic.com", "skip-cert-verify": true}
+- {"name": "US#70", "type": "trojan", "server": "199.232.78.120", "port": 443, "password": "MiTiVPN", "udp": true, "skip-cert-verify": true, "network": "ws", "ws-opts": {"path": "/---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/NLSus---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN", "headers": {"Host": "mitivpn--mitivpn.ac.ir"}}, "tls": true, "servername": "firefox.com"}
+- {"name": "CA 🇨🇦 @Raydikalx 03FF3D", "type": "vmess", "server": "172.67.221.77", "port": 443, "uuid": "83b09a64-1eaf-4c4d-89ed-866d4b6b8115", "alterId": 0, "cipher": "auto", "udp": true, "network": "ws", "ws-opts": {"path": "/truth", "headers": {"Host": "www.ubuntuupdates.com"}}, "tls": true, "servername": "www.ubuntuupdates.com", "skip-cert-verify": true}
+- {"name": "US#51", "type": "trojan", "server": "151.101.36.120", "port": 443, "password": "MiTiVPN", "udp": true, "skip-cert-verify": true, "network": "ws", "ws-opts": {"path": "/---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/NLSus---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN", "headers": {"Host": "mitivpn--mitivpn.ac.ir"}}, "tls": true, "servername": "firefox.com"}
+- {"name": "US#61", "type": "trojan", "server": "167.82.64.120", "port": 443, "password": "MiTiVPN", "udp": true, "skip-cert-verify": true, "network": "ws", "ws-opts": {"path": "/---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/NLSus---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN", "headers": {"Host": "mitivpn--mitivpn.ac.ir"}}, "tls": true, "servername": "firefox.com"}
+- {"name": "US#49", "type": "trojan", "server": "146.75.57.120", "port": 443, "password": "MiTiVPN", "udp": true, "skip-cert-verify": true, "network": "ws", "ws-opts": {"path": "/---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/NLSus---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN", "headers": {"Host": "mitivpn--mitivpn.ac.ir"}}, "tls": true, "servername": "firefox.com"}
+- {"name": "CA#179", "type": "vless", "server": "172.67.131.125", "port": 2083, "uuid": "f418674e-f518-4318-8ff9-e10000000046", "udp": true, "network": "ws", "ws-opts": {"path": "/sync", "headers": {"Host": "smart-edge-424.arti98399-1905.workers.dev"}}, "tls": true, "servername": "smart-edge-424.arti98399-1905.workers.dev", "skip-cert-verify": true}
+- {"name": "CA 🇨🇦 @Raydikalx 201F88", "type": "vmess", "server": "162.159.130.234", "port": 2083, "uuid": "ac251237-576f-40c8-a543-554960c958b1", "alterId": 0, "cipher": "auto", "udp": true, "network": "ws", "ws-opts": {"path": "/or3", "headers": {"Host": "or3.sfacg.uk"}}, "tls": true, "servername": "or3.sfacg.uk", "skip-cert-verify": true}
+- {"client-fingerprint": "chrome", "network": "ws", "password": "humanity", "port": 443, "server": "172.66.0.172", "servername": "www.cordweave.com", "skip-cert-verify": true, "sni": "www.cordweave.com", "tls": true, "type": "trojan", "udp": true, "ws-opts": {"path": "/assignment"}, "name": "🇺🇸_美国 (103) [59e79afbbddf01e6]"}
+- {"name": "CA#209", "type": "vless", "server": "104.16.10.72", "port": 443, "uuid": "4e4f1f70-5e56-4a76-bb9d-db087f4690c4", "udp": true, "network": "ws", "ws-opts": {"path": "/tyxyws", "headers": {"Host": "jp3.yohototo.top"}}, "tls": true, "servername": "jp3.yohototo.top", "skip-cert-verify": true}
+- {"name": "CA#70", "type": "vless", "server": "104.19.33.25", "port": 443, "uuid": "4e4f1f70-5e56-4a76-bb9d-db087f4690c4", "udp": true, "network": "ws", "ws-opts": {"path": "/tyxyws", "headers": {"Host": "jp3.yohototo.top"}}, "tls": true, "servername": "jp3.yohototo.top", "skip-cert-verify": true}
+- {"name": "CA#64", "type": "vless", "server": "104.16.10.2", "port": 443, "uuid": "4e4f1f70-5e56-4a76-bb9d-db087f4690c4", "udp": true, "network": "ws", "ws-opts": {"path": "/tyxyws", "headers": {"Host": "jp3.yohototo.top"}}, "tls": true, "servername": "jp3.yohototo.top", "skip-cert-verify": true}
+- {"name": "CA#69", "type": "vless", "server": "104.18.37.127", "port": 443, "uuid": "4e4f1f70-5e56-4a76-bb9d-db087f4690c4", "udp": true, "network": "ws", "ws-opts": {"path": "/tyxyws", "headers": {"Host": "jp3.yohototo.top"}}, "tls": true, "servername": "jp3.yohototo.top", "skip-cert-verify": true}
+- {"name": "CA#68", "type": "vless", "server": "104.17.50.53", "port": 443, "uuid": "4e4f1f70-5e56-4a76-bb9d-db087f4690c4", "udp": true, "network": "ws", "ws-opts": {"path": "/tyxyws", "headers": {"Host": "jp3.yohototo.top"}}, "tls": true, "servername": "jp3.yohototo.top", "skip-cert-verify": true}
+- {"name": "CA#73", "type": "vless", "server": "172.67.217.240", "port": 443, "uuid": "4e4f1f70-5e56-4a76-bb9d-db087f4690c4", "udp": true, "network": "ws", "ws-opts": {"path": "/tyxyws", "headers": {"Host": "jp3.yohototo.top"}}, "tls": true, "servername": "jp3.yohototo.top", "skip-cert-verify": true}
+- {"name": "CA#66", "type": "vless", "server": "104.16.111.195", "port": 443, "uuid": "4e4f1f70-5e56-4a76-bb9d-db087f4690c4", "udp": true, "network": "ws", "ws-opts": {"path": "/tyxyws", "headers": {"Host": "jp3.yohototo.top"}}, "tls": true, "servername": "jp3.yohototo.top", "skip-cert-verify": true}
+- {"name": "CA#67", "type": "vless", "server": "104.17.169.13", "port": 443, "uuid": "4e4f1f70-5e56-4a76-bb9d-db087f4690c4", "udp": true, "network": "ws", "ws-opts": {"path": "/tyxyws", "headers": {"Host": "jp3.yohototo.top"}}, "tls": true, "servername": "jp3.yohototo.top", "skip-cert-verify": true}
+- {"name": "CA#72", "type": "vless", "server": "172.64.190.13", "port": 443, "uuid": "4e4f1f70-5e56-4a76-bb9d-db087f4690c4", "udp": true, "network": "ws", "ws-opts": {"path": "/tyxyws", "headers": {"Host": "jp3.yohototo.top"}}, "tls": true, "servername": "jp3.yohototo.top", "skip-cert-verify": true}
+- {"name": "[OpenRay] 🇸🇨SC-32", "type": "vless", "server": "194.156.26.6", "port": 443, "uuid": "50414e45-4c5f-5a45-5553-10609203787d", "udp": true, "network": "ws", "ws-opts": {"path": "/stream/PANEL_ZEUS/10609203787d/loc-1", "headers": {"Host": "rqzt0xexu5ms.rwf5sggee1geeewwrfg.workers.dev"}}, "tls": true, "servername": "rqzt0xexu5ms.rwf5sggee1geeewwrfg.workers.dev", "skip-cert-verify": true}
+- {"name": "CA#213", "type": "vless", "server": "104.21.6.186", "port": 443, "uuid": "4e4f1f70-5e56-4a76-bb9d-db087f4690c4", "udp": true, "network": "ws", "ws-opts": {"path": "/tyxyws", "headers": {"Host": "jp3.yohototo.top"}}, "tls": true, "servername": "jp3.yohototo.top", "skip-cert-verify": true}
+- {"name": "CA#71", "type": "vless", "server": "104.21.33.59", "port": 443, "uuid": "4e4f1f70-5e56-4a76-bb9d-db087f4690c4", "udp": true, "network": "ws", "ws-opts": {"path": "/tyxyws", "headers": {"Host": "jp3.yohototo.top"}}, "tls": true, "servername": "jp3.yohototo.top", "skip-cert-verify": true}
+- {"name": "CA#63", "type": "vless", "server": "104.16.10.22", "port": 443, "uuid": "4e4f1f70-5e56-4a76-bb9d-db087f4690c4", "udp": true, "network": "ws", "ws-opts": {"path": "/tyxyws", "headers": {"Host": "jp3.yohototo.top"}}, "tls": true, "servername": "jp3.yohototo.top", "skip-cert-verify": true}
+- {"name": "CA#155", "type": "vless", "server": "104.18.100.43", "port": 443, "uuid": "e221699d-e705-4664-9162-a75a82aa3997", "udp": true, "network": "ws", "ws-opts": {"path": "/700gvl-kr3", "headers": {"Host": "sg2-xr.zgrelay.com"}}, "tls": true, "servername": "sg2-xr.zgrelay.com", "skip-cert-verify": true}
+- {"name": "CA#212", "type": "vless", "server": "104.21.0.87", "port": 443, "uuid": "4e4f1f70-5e56-4a76-bb9d-db087f4690c4", "udp": true, "network": "ws", "ws-opts": {"path": "/tyxyws", "headers": {"Host": "jp3.yohototo.top"}}, "tls": true, "servername": "jp3.yohototo.top", "skip-cert-verify": true}
+- {"name": "CA#211", "type": "vless", "server": "104.17.210.74", "port": 443, "uuid": "4e4f1f70-5e56-4a76-bb9d-db087f4690c4", "udp": true, "network": "ws", "ws-opts": {"path": "/tyxyws", "headers": {"Host": "jp3.yohototo.top"}}, "tls": true, "servername": "jp3.yohototo.top", "skip-cert-verify": true}
 
 proxy-groups:
 - name: "🚀 节点选择"
@@ -135,15 +104,9 @@ proxy-groups:
   proxies:
     - "♻️ 自动选择"
     - "DIRECT"
-    - "🌍 HK"
-    - "🌍 JP"
     - "🌍 KR"
-    - "🌍 SG"
     - "🌍 US"
-    - "🌍 DE"
-    - "🌍 FR"
-    - "🌍 NL"
-    - "🌍 RU"
+    - "🌍 CA"
     - "🌍 other"
 - name: "♻️ 自动选择"
   type: url-test
@@ -152,176 +115,95 @@ proxy-groups:
   tolerance: 50
   lazy: true
   proxies:
-    - "🇭🇰 HTTP 165.154.7.156:8888 M"
-    - "U⚪🏳️ukn[📺🎭📦🔍]_dokng.com_a5ba9bd7"
-    - "[OpenRay] 🇭🇰HK-28"
-    - "🇯🇵JP_21.3MB/s"
-    - "🇰🇷 SOCKS5 121.169.46.116:1090 M"
-    - "C🟠🇸🇬hos_dokng.com_3650d1d3"
-    - "C🟠🇸🇬hos[🎭🎪]_dokng.com_d363cfc0"
-    - "KR - zhuhai.uk [e1811b682ddc4a7e]"
-    - "C🟠🇸🇬hos[🤖🔍]_dokng.com_51a7e463"
-    - "🇮🇩 HTTP 103.158.97.82:8080 M"
-    - "C🟠🇸🇬hos[📺🎪🔍]_dokng.com_38117f1c"
-    - "🇹🇭 HTTP 124.122.253.182:8080 M"
-    - "[OpenRay] 🇻🇳VN-135"
-    - "[OpenRay] 🇹🇭TH-109"
-    - "D🔴🇫🇷hos[🎬🤖📺🎭]_dokng.com_09592fae"
-    - "vless-1945511685"
-    - "🇳🇱NL_63573KB/sR002-260618 [11147645fc19]"
-    - "D🔴🇳🇱hos[🎬🤖📺🎭]_dokng.com_f89d41d4"
-    - "🇩🇪DE_19758KB/sR002-260618 [92abb46579b9]"
-    - "D🔴🇮🇳hos[🤖📺]_dokng.com_1b23a856"
-    - "D🔴🇫🇷hos[🎬🤖📺🎭]_dokng.com_13bb1fbc"
-    - "🇫🇷FR_405.7MB/sR002-260618 [7b7481c3cec7]"
-    - "[OpenRay] 🇳🇱NL-161"
-    - "[OpenRay] 🇳🇱NL-491"
-    - "D🔴🇺🇸hos[🎬🤖📺🎭]_dokng.com_6c51c4d9"
-    - "D🔴🇫🇷hos[🎬🤖📺🎭]_dokng.com_4eaea5d3"
-    - "[OpenRay] 🇳🇱NL-677"
-    - "[OpenRay] 🇳🇱NL-551"
-    - "[OpenRay] 🇳🇱NL-323"
-    - "C🟠🇮🇪hos[🎬🤖📺🎭]_dokng.com_3374aeb9"
-    - "[OpenRay] 🇳🇱NL-18"
-    - "[OpenRay] 🇳🇱NL-415"
-    - "[OpenRay] 🇳🇱NL-245"
-    - "D🔴🇵🇭mob[🤖📺🎭🎪]_dokng.com_3e63267a"
-    - "[OpenRay] 🇵🇭PH-45"
-    - "[OpenRay] 🇳🇱NL-405"
-    - "[OpenRay] 🇳🇱NL-653"
-    - "🇺🇸US_227816KB/sP002-260618 [7feeec8f30cf]"
-    - "🇺🇸US_92725KB/sP002-260618 [4cc71e0918ac]"
-    - "🇺🇸US_279816KB/sP002-260618 [8d81cfcb4761]"
-    - "D🔴🇺🇸hos[🎬🤖📺🎭]_dokng.com_c09c3f93"
+    - "C🟠🇺🇸hos[🎬🤖📺🎭]_dokng.com_3c84b2dc"
+    - "US#47"
+    - "D🔴🇺🇸hos[🎬🤖📺🎭]_dokng.com_c3322f2c"
     - "D🔴🇰🇷hos[🎬🤖📺🎭]_dokng.com_0618cdac"
-    - "🇷🇴RO_972.0MB/sR002-260618 [b13737a97166]"
-    - "🇺🇸US_125730KB/sR002-260618 [2d2bb008072d]"
-    - "[OpenRay] 🇹🇷TR-107"
-    - "🇺🇸US_57860KB/sR002-260618 [4987e043a0ba]"
-    - "D🔴🇺🇸hos[🎬🤖📺🎭]_dokng.com_4af4a28d"
-    - "D🔴🇩🇪hos[🎬🤖📺🎭]_dokng.com_024b080b"
-    - "vless-1880258570"
-    - "A🟢🇫🇷res[🎬🤖📺🎭]_dokng.com_071a491a"
-    - "[OpenRay] 🇳🇱NL-510"
-    - "[OpenRay] 🇨🇳CN-93"
-    - "D🔴🇷🇺hos[🎪✨🎞️📦]_dokng.com_840f7b19"
-    - "[OpenRay] 🇨🇳CN-74"
-    - "[OpenRay] 🇨🇳CN-108"
-    - "[OpenRay] 🇨🇳CN-91"
-    - "🇳🇱NL_1886.2MB/sR002-260618 [e136058b2502]"
-    - "[OpenRay] 🇨🇳CN-5"
-    - "[OpenRay] 🇨🇳CN-9"
-    - "🇱🇻LV_62.3MB/sR002-260618 [818b03a8a270]"
-    - "HK 🇭🇰 @Raydikalx 702A35"
-    - "🇰🇷KR²_10.7MB/sGPTXHistory [67fc8d504db5]"
-    - "[OpenRay] 🇨🇳CN-135"
-    - "[OpenRay] 🇨🇳CN-112"
-    - "[OpenRay] 🇨🇳CN-118"
-    - "[OpenRay] 🇨🇳CN-51"
-    - "[OpenRay] 🇨🇳CN-114"
-    - "[OpenRay] 🇨🇳CN-26"
-    - "[OpenRay] 🇮🇩ID-407"
-    - "[OpenRay] 🇨🇳CN-138"
-    - "🇺🇸US_32898KB/sR002-260618 [9862f21df803]"
-    - "🇺🇸US_360229KB/sR002-260618 [c3d5eeffc341]"
-    - "🇭🇰 SOCKS5 123.58.219.171:10808 M"
-    - "🇺🇸US_336221KB/sR002-260618 [f4caa26d30c3]"
+    - "A🟢🇺🇸res[🎬🤖📺🎭]_dokng.com_cfdbfd42"
+    - "B🟡🇺🇸biz[🎬🤖📺🎭]_dokng.com_e4a4c124"
+    - "D🔴🇰🇷hos[🎬🤖📺🎭]_dokng.com_a38c7e22"
+    - "D🔴🇺🇸hos[🎬🤖📺🎭]_dokng.com_defefaab"
+    - "🇺🇸US_21812KB/sR002-260618 [42475c556145]"
+    - "US#105"
+    - "US#106"
+    - "US#108"
+    - "CA 🇨🇦 @Raydikalx F965E4"
+    - "vless-1946062464"
+    - "C🟠🇺🇸hos[🤖📺🎪✨]_dokng.com_17598770"
+    - "CA#56"
+    - "CA#58"
+    - "CA#57"
+    - "US#107"
+    - "US#70"
+    - "CA 🇨🇦 @Raydikalx 03FF3D"
+    - "US#51"
+    - "US#61"
+    - "US#49"
+    - "CA#179"
+    - "CA 🇨🇦 @Raydikalx 201F88"
+    - "🇺🇸_美国 (103) [59e79afbbddf01e6]"
+    - "CA#209"
+    - "CA#70"
+    - "CA#64"
+    - "CA#69"
+    - "CA#68"
+    - "CA#73"
+    - "CA#66"
+    - "CA#67"
+    - "CA#72"
+    - "[OpenRay] 🇸🇨SC-32"
+    - "CA#213"
+    - "CA#71"
+    - "CA#63"
+    - "CA#155"
+    - "CA#212"
+    - "CA#211"
 - name: "🌏 全部节点"
   type: select
   proxies:
-    - "🇭🇰 HTTP 165.154.7.156:8888 M"
-    - "U⚪🏳️ukn[📺🎭📦🔍]_dokng.com_a5ba9bd7"
-    - "[OpenRay] 🇭🇰HK-28"
-    - "🇯🇵JP_21.3MB/s"
-    - "🇰🇷 SOCKS5 121.169.46.116:1090 M"
-    - "C🟠🇸🇬hos_dokng.com_3650d1d3"
-    - "C🟠🇸🇬hos[🎭🎪]_dokng.com_d363cfc0"
-    - "KR - zhuhai.uk [e1811b682ddc4a7e]"
-    - "C🟠🇸🇬hos[🤖🔍]_dokng.com_51a7e463"
-    - "🇮🇩 HTTP 103.158.97.82:8080 M"
-    - "C🟠🇸🇬hos[📺🎪🔍]_dokng.com_38117f1c"
-    - "🇹🇭 HTTP 124.122.253.182:8080 M"
-    - "[OpenRay] 🇻🇳VN-135"
-    - "[OpenRay] 🇹🇭TH-109"
-    - "D🔴🇫🇷hos[🎬🤖📺🎭]_dokng.com_09592fae"
-    - "vless-1945511685"
-    - "🇳🇱NL_63573KB/sR002-260618 [11147645fc19]"
-    - "D🔴🇳🇱hos[🎬🤖📺🎭]_dokng.com_f89d41d4"
-    - "🇩🇪DE_19758KB/sR002-260618 [92abb46579b9]"
-    - "D🔴🇮🇳hos[🤖📺]_dokng.com_1b23a856"
-    - "D🔴🇫🇷hos[🎬🤖📺🎭]_dokng.com_13bb1fbc"
-    - "🇫🇷FR_405.7MB/sR002-260618 [7b7481c3cec7]"
-    - "[OpenRay] 🇳🇱NL-161"
-    - "[OpenRay] 🇳🇱NL-491"
-    - "D🔴🇺🇸hos[🎬🤖📺🎭]_dokng.com_6c51c4d9"
-    - "D🔴🇫🇷hos[🎬🤖📺🎭]_dokng.com_4eaea5d3"
-    - "[OpenRay] 🇳🇱NL-677"
-    - "[OpenRay] 🇳🇱NL-551"
-    - "[OpenRay] 🇳🇱NL-323"
-    - "C🟠🇮🇪hos[🎬🤖📺🎭]_dokng.com_3374aeb9"
-    - "[OpenRay] 🇳🇱NL-18"
-    - "[OpenRay] 🇳🇱NL-415"
-    - "[OpenRay] 🇳🇱NL-245"
-    - "D🔴🇵🇭mob[🤖📺🎭🎪]_dokng.com_3e63267a"
-    - "[OpenRay] 🇵🇭PH-45"
-    - "[OpenRay] 🇳🇱NL-405"
-    - "[OpenRay] 🇳🇱NL-653"
-    - "🇺🇸US_227816KB/sP002-260618 [7feeec8f30cf]"
-    - "🇺🇸US_92725KB/sP002-260618 [4cc71e0918ac]"
-    - "🇺🇸US_279816KB/sP002-260618 [8d81cfcb4761]"
-    - "D🔴🇺🇸hos[🎬🤖📺🎭]_dokng.com_c09c3f93"
+    - "C🟠🇺🇸hos[🎬🤖📺🎭]_dokng.com_3c84b2dc"
+    - "US#47"
+    - "D🔴🇺🇸hos[🎬🤖📺🎭]_dokng.com_c3322f2c"
     - "D🔴🇰🇷hos[🎬🤖📺🎭]_dokng.com_0618cdac"
-    - "🇷🇴RO_972.0MB/sR002-260618 [b13737a97166]"
-    - "🇺🇸US_125730KB/sR002-260618 [2d2bb008072d]"
-    - "[OpenRay] 🇹🇷TR-107"
-    - "🇺🇸US_57860KB/sR002-260618 [4987e043a0ba]"
-    - "D🔴🇺🇸hos[🎬🤖📺🎭]_dokng.com_4af4a28d"
-    - "D🔴🇩🇪hos[🎬🤖📺🎭]_dokng.com_024b080b"
-    - "vless-1880258570"
-    - "A🟢🇫🇷res[🎬🤖📺🎭]_dokng.com_071a491a"
-    - "[OpenRay] 🇳🇱NL-510"
-    - "[OpenRay] 🇨🇳CN-93"
-    - "D🔴🇷🇺hos[🎪✨🎞️📦]_dokng.com_840f7b19"
-    - "[OpenRay] 🇨🇳CN-74"
-    - "[OpenRay] 🇨🇳CN-108"
-    - "[OpenRay] 🇨🇳CN-91"
-    - "🇳🇱NL_1886.2MB/sR002-260618 [e136058b2502]"
-    - "[OpenRay] 🇨🇳CN-5"
-    - "[OpenRay] 🇨🇳CN-9"
-    - "🇱🇻LV_62.3MB/sR002-260618 [818b03a8a270]"
-    - "HK 🇭🇰 @Raydikalx 702A35"
-    - "🇰🇷KR²_10.7MB/sGPTXHistory [67fc8d504db5]"
-    - "[OpenRay] 🇨🇳CN-135"
-    - "[OpenRay] 🇨🇳CN-112"
-    - "[OpenRay] 🇨🇳CN-118"
-    - "[OpenRay] 🇨🇳CN-51"
-    - "[OpenRay] 🇨🇳CN-114"
-    - "[OpenRay] 🇨🇳CN-26"
-    - "[OpenRay] 🇮🇩ID-407"
-    - "[OpenRay] 🇨🇳CN-138"
-    - "🇺🇸US_32898KB/sR002-260618 [9862f21df803]"
-    - "🇺🇸US_360229KB/sR002-260618 [c3d5eeffc341]"
-    - "🇭🇰 SOCKS5 123.58.219.171:10808 M"
-    - "🇺🇸US_336221KB/sR002-260618 [f4caa26d30c3]"
-- name: "🌍 HK"
-  type: url-test
-  url: https://www.gstatic.com/generate_204
-  interval: 300
-  tolerance: 50
-  lazy: true
-  proxies:
-    - "🇭🇰 HTTP 165.154.7.156:8888 M"
-    - "[OpenRay] 🇭🇰HK-28"
-    - "HK 🇭🇰 @Raydikalx 702A35"
-    - "🇭🇰 SOCKS5 123.58.219.171:10808 M"
-- name: "🌍 JP"
-  type: url-test
-  url: https://www.gstatic.com/generate_204
-  interval: 300
-  tolerance: 50
-  lazy: true
-  proxies:
-    - "🇯🇵JP_21.3MB/s"
+    - "A🟢🇺🇸res[🎬🤖📺🎭]_dokng.com_cfdbfd42"
+    - "B🟡🇺🇸biz[🎬🤖📺🎭]_dokng.com_e4a4c124"
+    - "D🔴🇰🇷hos[🎬🤖📺🎭]_dokng.com_a38c7e22"
+    - "D🔴🇺🇸hos[🎬🤖📺🎭]_dokng.com_defefaab"
+    - "🇺🇸US_21812KB/sR002-260618 [42475c556145]"
+    - "US#105"
+    - "US#106"
+    - "US#108"
+    - "CA 🇨🇦 @Raydikalx F965E4"
+    - "vless-1946062464"
+    - "C🟠🇺🇸hos[🤖📺🎪✨]_dokng.com_17598770"
+    - "CA#56"
+    - "CA#58"
+    - "CA#57"
+    - "US#107"
+    - "US#70"
+    - "CA 🇨🇦 @Raydikalx 03FF3D"
+    - "US#51"
+    - "US#61"
+    - "US#49"
+    - "CA#179"
+    - "CA 🇨🇦 @Raydikalx 201F88"
+    - "🇺🇸_美国 (103) [59e79afbbddf01e6]"
+    - "CA#209"
+    - "CA#70"
+    - "CA#64"
+    - "CA#69"
+    - "CA#68"
+    - "CA#73"
+    - "CA#66"
+    - "CA#67"
+    - "CA#72"
+    - "[OpenRay] 🇸🇨SC-32"
+    - "CA#213"
+    - "CA#71"
+    - "CA#63"
+    - "CA#155"
+    - "CA#212"
+    - "CA#211"
 - name: "🌍 KR"
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -329,21 +211,8 @@ proxy-groups:
   tolerance: 50
   lazy: true
   proxies:
-    - "🇰🇷 SOCKS5 121.169.46.116:1090 M"
-    - "KR - zhuhai.uk [e1811b682ddc4a7e]"
     - "D🔴🇰🇷hos[🎬🤖📺🎭]_dokng.com_0618cdac"
-    - "🇰🇷KR²_10.7MB/sGPTXHistory [67fc8d504db5]"
-- name: "🌍 SG"
-  type: url-test
-  url: https://www.gstatic.com/generate_204
-  interval: 300
-  tolerance: 50
-  lazy: true
-  proxies:
-    - "C🟠🇸🇬hos_dokng.com_3650d1d3"
-    - "C🟠🇸🇬hos[🎭🎪]_dokng.com_d363cfc0"
-    - "C🟠🇸🇬hos[🤖🔍]_dokng.com_51a7e463"
-    - "C🟠🇸🇬hos[📺🎪🔍]_dokng.com_38117f1c"
+    - "D🔴🇰🇷hos[🎬🤖📺🎭]_dokng.com_a38c7e22"
 - name: "🌍 US"
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -351,67 +220,52 @@ proxy-groups:
   tolerance: 50
   lazy: true
   proxies:
-    - "D🔴🇺🇸hos[🎬🤖📺🎭]_dokng.com_6c51c4d9"
-    - "🇺🇸US_227816KB/sP002-260618 [7feeec8f30cf]"
-    - "🇺🇸US_92725KB/sP002-260618 [4cc71e0918ac]"
-    - "🇺🇸US_279816KB/sP002-260618 [8d81cfcb4761]"
-    - "D🔴🇺🇸hos[🎬🤖📺🎭]_dokng.com_c09c3f93"
-    - "🇺🇸US_125730KB/sR002-260618 [2d2bb008072d]"
-    - "🇺🇸US_57860KB/sR002-260618 [4987e043a0ba]"
-    - "D🔴🇺🇸hos[🎬🤖📺🎭]_dokng.com_4af4a28d"
-    - "🇺🇸US_32898KB/sR002-260618 [9862f21df803]"
-    - "🇺🇸US_360229KB/sR002-260618 [c3d5eeffc341]"
-    - "🇺🇸US_336221KB/sR002-260618 [f4caa26d30c3]"
-- name: "🌍 DE"
+    - "C🟠🇺🇸hos[🎬🤖📺🎭]_dokng.com_3c84b2dc"
+    - "US#47"
+    - "D🔴🇺🇸hos[🎬🤖📺🎭]_dokng.com_c3322f2c"
+    - "A🟢🇺🇸res[🎬🤖📺🎭]_dokng.com_cfdbfd42"
+    - "B🟡🇺🇸biz[🎬🤖📺🎭]_dokng.com_e4a4c124"
+    - "D🔴🇺🇸hos[🎬🤖📺🎭]_dokng.com_defefaab"
+    - "🇺🇸US_21812KB/sR002-260618 [42475c556145]"
+    - "US#105"
+    - "US#106"
+    - "US#108"
+    - "C🟠🇺🇸hos[🤖📺🎪✨]_dokng.com_17598770"
+    - "US#107"
+    - "US#70"
+    - "US#51"
+    - "US#61"
+    - "US#49"
+    - "🇺🇸_美国 (103) [59e79afbbddf01e6]"
+- name: "🌍 CA"
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
   lazy: true
   proxies:
-    - "🇩🇪DE_19758KB/sR002-260618 [92abb46579b9]"
-    - "D🔴🇩🇪hos[🎬🤖📺🎭]_dokng.com_024b080b"
-- name: "🌍 FR"
-  type: url-test
-  url: https://www.gstatic.com/generate_204
-  interval: 300
-  tolerance: 50
-  lazy: true
-  proxies:
-    - "D🔴🇫🇷hos[🎬🤖📺🎭]_dokng.com_09592fae"
-    - "D🔴🇫🇷hos[🎬🤖📺🎭]_dokng.com_13bb1fbc"
-    - "🇫🇷FR_405.7MB/sR002-260618 [7b7481c3cec7]"
-    - "D🔴🇫🇷hos[🎬🤖📺🎭]_dokng.com_4eaea5d3"
-    - "A🟢🇫🇷res[🎬🤖📺🎭]_dokng.com_071a491a"
-- name: "🌍 NL"
-  type: url-test
-  url: https://www.gstatic.com/generate_204
-  interval: 300
-  tolerance: 50
-  lazy: true
-  proxies:
-    - "🇳🇱NL_63573KB/sR002-260618 [11147645fc19]"
-    - "D🔴🇳🇱hos[🎬🤖📺🎭]_dokng.com_f89d41d4"
-    - "[OpenRay] 🇳🇱NL-161"
-    - "[OpenRay] 🇳🇱NL-491"
-    - "[OpenRay] 🇳🇱NL-677"
-    - "[OpenRay] 🇳🇱NL-551"
-    - "[OpenRay] 🇳🇱NL-323"
-    - "[OpenRay] 🇳🇱NL-18"
-    - "[OpenRay] 🇳🇱NL-415"
-    - "[OpenRay] 🇳🇱NL-245"
-    - "[OpenRay] 🇳🇱NL-405"
-    - "[OpenRay] 🇳🇱NL-653"
-    - "[OpenRay] 🇳🇱NL-510"
-    - "🇳🇱NL_1886.2MB/sR002-260618 [e136058b2502]"
-- name: "🌍 RU"
-  type: url-test
-  url: https://www.gstatic.com/generate_204
-  interval: 300
-  tolerance: 50
-  lazy: true
-  proxies:
-    - "D🔴🇷🇺hos[🎪✨🎞️📦]_dokng.com_840f7b19"
+    - "CA 🇨🇦 @Raydikalx F965E4"
+    - "CA#56"
+    - "CA#58"
+    - "CA#57"
+    - "CA 🇨🇦 @Raydikalx 03FF3D"
+    - "CA#179"
+    - "CA 🇨🇦 @Raydikalx 201F88"
+    - "CA#209"
+    - "CA#70"
+    - "CA#64"
+    - "CA#69"
+    - "CA#68"
+    - "CA#73"
+    - "CA#66"
+    - "CA#67"
+    - "CA#72"
+    - "CA#213"
+    - "CA#71"
+    - "CA#63"
+    - "CA#155"
+    - "CA#212"
+    - "CA#211"
 - name: "🌍 other"
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -419,34 +273,8 @@ proxy-groups:
   tolerance: 50
   lazy: true
   proxies:
-    - "U⚪🏳️ukn[📺🎭📦🔍]_dokng.com_a5ba9bd7"
-    - "🇮🇩 HTTP 103.158.97.82:8080 M"
-    - "🇹🇭 HTTP 124.122.253.182:8080 M"
-    - "[OpenRay] 🇻🇳VN-135"
-    - "[OpenRay] 🇹🇭TH-109"
-    - "vless-1945511685"
-    - "D🔴🇮🇳hos[🤖📺]_dokng.com_1b23a856"
-    - "C🟠🇮🇪hos[🎬🤖📺🎭]_dokng.com_3374aeb9"
-    - "D🔴🇵🇭mob[🤖📺🎭🎪]_dokng.com_3e63267a"
-    - "[OpenRay] 🇵🇭PH-45"
-    - "🇷🇴RO_972.0MB/sR002-260618 [b13737a97166]"
-    - "[OpenRay] 🇹🇷TR-107"
-    - "vless-1880258570"
-    - "[OpenRay] 🇨🇳CN-93"
-    - "[OpenRay] 🇨🇳CN-74"
-    - "[OpenRay] 🇨🇳CN-108"
-    - "[OpenRay] 🇨🇳CN-91"
-    - "[OpenRay] 🇨🇳CN-5"
-    - "[OpenRay] 🇨🇳CN-9"
-    - "🇱🇻LV_62.3MB/sR002-260618 [818b03a8a270]"
-    - "[OpenRay] 🇨🇳CN-135"
-    - "[OpenRay] 🇨🇳CN-112"
-    - "[OpenRay] 🇨🇳CN-118"
-    - "[OpenRay] 🇨🇳CN-51"
-    - "[OpenRay] 🇨🇳CN-114"
-    - "[OpenRay] 🇨🇳CN-26"
-    - "[OpenRay] 🇮🇩ID-407"
-    - "[OpenRay] 🇨🇳CN-138"
+    - "vless-1946062464"
+    - "[OpenRay] 🇸🇨SC-32"
 - name: "📺 流媒体"
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -454,80 +282,49 @@ proxy-groups:
   tolerance: 50
   lazy: true
   proxies:
-    - "🇭🇰 HTTP 165.154.7.156:8888 M"
-    - "U⚪🏳️ukn[📺🎭📦🔍]_dokng.com_a5ba9bd7"
-    - "[OpenRay] 🇭🇰HK-28"
-    - "🇯🇵JP_21.3MB/s"
-    - "🇰🇷 SOCKS5 121.169.46.116:1090 M"
-    - "C🟠🇸🇬hos_dokng.com_3650d1d3"
-    - "C🟠🇸🇬hos[🎭🎪]_dokng.com_d363cfc0"
-    - "KR - zhuhai.uk [e1811b682ddc4a7e]"
-    - "C🟠🇸🇬hos[🤖🔍]_dokng.com_51a7e463"
-    - "🇮🇩 HTTP 103.158.97.82:8080 M"
-    - "C🟠🇸🇬hos[📺🎪🔍]_dokng.com_38117f1c"
-    - "🇹🇭 HTTP 124.122.253.182:8080 M"
-    - "[OpenRay] 🇻🇳VN-135"
-    - "[OpenRay] 🇹🇭TH-109"
-    - "D🔴🇫🇷hos[🎬🤖📺🎭]_dokng.com_09592fae"
-    - "vless-1945511685"
-    - "🇳🇱NL_63573KB/sR002-260618 [11147645fc19]"
-    - "D🔴🇳🇱hos[🎬🤖📺🎭]_dokng.com_f89d41d4"
-    - "🇩🇪DE_19758KB/sR002-260618 [92abb46579b9]"
-    - "D🔴🇮🇳hos[🤖📺]_dokng.com_1b23a856"
-    - "D🔴🇫🇷hos[🎬🤖📺🎭]_dokng.com_13bb1fbc"
-    - "🇫🇷FR_405.7MB/sR002-260618 [7b7481c3cec7]"
-    - "[OpenRay] 🇳🇱NL-161"
-    - "[OpenRay] 🇳🇱NL-491"
-    - "D🔴🇺🇸hos[🎬🤖📺🎭]_dokng.com_6c51c4d9"
-    - "D🔴🇫🇷hos[🎬🤖📺🎭]_dokng.com_4eaea5d3"
-    - "[OpenRay] 🇳🇱NL-677"
-    - "[OpenRay] 🇳🇱NL-551"
-    - "[OpenRay] 🇳🇱NL-323"
-    - "C🟠🇮🇪hos[🎬🤖📺🎭]_dokng.com_3374aeb9"
-    - "[OpenRay] 🇳🇱NL-18"
-    - "[OpenRay] 🇳🇱NL-415"
-    - "[OpenRay] 🇳🇱NL-245"
-    - "D🔴🇵🇭mob[🤖📺🎭🎪]_dokng.com_3e63267a"
-    - "[OpenRay] 🇵🇭PH-45"
-    - "[OpenRay] 🇳🇱NL-405"
-    - "[OpenRay] 🇳🇱NL-653"
-    - "🇺🇸US_227816KB/sP002-260618 [7feeec8f30cf]"
-    - "🇺🇸US_92725KB/sP002-260618 [4cc71e0918ac]"
-    - "🇺🇸US_279816KB/sP002-260618 [8d81cfcb4761]"
-    - "D🔴🇺🇸hos[🎬🤖📺🎭]_dokng.com_c09c3f93"
+    - "C🟠🇺🇸hos[🎬🤖📺🎭]_dokng.com_3c84b2dc"
+    - "US#47"
+    - "D🔴🇺🇸hos[🎬🤖📺🎭]_dokng.com_c3322f2c"
     - "D🔴🇰🇷hos[🎬🤖📺🎭]_dokng.com_0618cdac"
-    - "🇷🇴RO_972.0MB/sR002-260618 [b13737a97166]"
-    - "🇺🇸US_125730KB/sR002-260618 [2d2bb008072d]"
-    - "[OpenRay] 🇹🇷TR-107"
-    - "🇺🇸US_57860KB/sR002-260618 [4987e043a0ba]"
-    - "D🔴🇺🇸hos[🎬🤖📺🎭]_dokng.com_4af4a28d"
-    - "D🔴🇩🇪hos[🎬🤖📺🎭]_dokng.com_024b080b"
-    - "vless-1880258570"
-    - "A🟢🇫🇷res[🎬🤖📺🎭]_dokng.com_071a491a"
-    - "[OpenRay] 🇳🇱NL-510"
-    - "[OpenRay] 🇨🇳CN-93"
-    - "D🔴🇷🇺hos[🎪✨🎞️📦]_dokng.com_840f7b19"
-    - "[OpenRay] 🇨🇳CN-74"
-    - "[OpenRay] 🇨🇳CN-108"
-    - "[OpenRay] 🇨🇳CN-91"
-    - "🇳🇱NL_1886.2MB/sR002-260618 [e136058b2502]"
-    - "[OpenRay] 🇨🇳CN-5"
-    - "[OpenRay] 🇨🇳CN-9"
-    - "🇱🇻LV_62.3MB/sR002-260618 [818b03a8a270]"
-    - "HK 🇭🇰 @Raydikalx 702A35"
-    - "🇰🇷KR²_10.7MB/sGPTXHistory [67fc8d504db5]"
-    - "[OpenRay] 🇨🇳CN-135"
-    - "[OpenRay] 🇨🇳CN-112"
-    - "[OpenRay] 🇨🇳CN-118"
-    - "[OpenRay] 🇨🇳CN-51"
-    - "[OpenRay] 🇨🇳CN-114"
-    - "[OpenRay] 🇨🇳CN-26"
-    - "[OpenRay] 🇮🇩ID-407"
-    - "[OpenRay] 🇨🇳CN-138"
-    - "🇺🇸US_32898KB/sR002-260618 [9862f21df803]"
-    - "🇺🇸US_360229KB/sR002-260618 [c3d5eeffc341]"
-    - "🇭🇰 SOCKS5 123.58.219.171:10808 M"
-    - "🇺🇸US_336221KB/sR002-260618 [f4caa26d30c3]"
+    - "A🟢🇺🇸res[🎬🤖📺🎭]_dokng.com_cfdbfd42"
+    - "B🟡🇺🇸biz[🎬🤖📺🎭]_dokng.com_e4a4c124"
+    - "D🔴🇰🇷hos[🎬🤖📺🎭]_dokng.com_a38c7e22"
+    - "D🔴🇺🇸hos[🎬🤖📺🎭]_dokng.com_defefaab"
+    - "🇺🇸US_21812KB/sR002-260618 [42475c556145]"
+    - "US#105"
+    - "US#106"
+    - "US#108"
+    - "CA 🇨🇦 @Raydikalx F965E4"
+    - "vless-1946062464"
+    - "C🟠🇺🇸hos[🤖📺🎪✨]_dokng.com_17598770"
+    - "CA#56"
+    - "CA#58"
+    - "CA#57"
+    - "US#107"
+    - "US#70"
+    - "CA 🇨🇦 @Raydikalx 03FF3D"
+    - "US#51"
+    - "US#61"
+    - "US#49"
+    - "CA#179"
+    - "CA 🇨🇦 @Raydikalx 201F88"
+    - "🇺🇸_美国 (103) [59e79afbbddf01e6]"
+    - "CA#209"
+    - "CA#70"
+    - "CA#64"
+    - "CA#69"
+    - "CA#68"
+    - "CA#73"
+    - "CA#66"
+    - "CA#67"
+    - "CA#72"
+    - "[OpenRay] 🇸🇨SC-32"
+    - "CA#213"
+    - "CA#71"
+    - "CA#63"
+    - "CA#155"
+    - "CA#212"
+    - "CA#211"
 - name: "🤖 AI服务"
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -535,16 +332,16 @@ proxy-groups:
   tolerance: 50
   lazy: true
   proxies:
-    - "🇯🇵JP_21.3MB/s"
-    - "🇺🇸US_227816KB/sP002-260618 [7feeec8f30cf]"
-    - "🇺🇸US_92725KB/sP002-260618 [4cc71e0918ac]"
-    - "🇺🇸US_279816KB/sP002-260618 [8d81cfcb4761]"
-    - "🇺🇸US_125730KB/sR002-260618 [2d2bb008072d]"
-    - "🇺🇸US_57860KB/sR002-260618 [4987e043a0ba]"
-    - "🇰🇷KR²_10.7MB/sGPTXHistory [67fc8d504db5]"
-    - "🇺🇸US_32898KB/sR002-260618 [9862f21df803]"
-    - "🇺🇸US_360229KB/sR002-260618 [c3d5eeffc341]"
-    - "🇺🇸US_336221KB/sR002-260618 [f4caa26d30c3]"
+    - "US#47"
+    - "🇺🇸US_21812KB/sR002-260618 [42475c556145]"
+    - "US#105"
+    - "US#106"
+    - "US#108"
+    - "US#107"
+    - "US#70"
+    - "US#51"
+    - "US#61"
+    - "US#49"
 
 rules:
   - GEOIP,LAN,DIRECT,no-resolve
