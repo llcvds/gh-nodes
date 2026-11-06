@@ -1,19 +1,19 @@
 {
- "updated": "2026-11-05T02:27:33+0000",
+ "updated": "2026-11-06T02:26:32+0000",
  "sources_total": 493,
- "sources_ok": 485,
- "sources_failed": 8,
- "nodes_final": 544,
+ "sources_ok": 483,
+ "sources_failed": 10,
+ "nodes_final": 707,
  "protocols": {
-  "http": 261,
-  "vless": 202,
-  "socks5": 30,
-  "ss": 26,
-  "vmess": 12,
-  "trojan": 8,
+  "vless": 359,
+  "http": 262,
+  "socks5": 26,
+  "ss": 23,
+  "vmess": 18,
+  "trojan": 14,
   "hysteria2": 4,
   "ssr": 1
  },
- "fastest_ms": 8,
- "median_ms": 82
+ "fastest_ms": 14,
+ "median_ms": 78
 }
