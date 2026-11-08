@@ -1,5 +1,5 @@
 # 上游节点源清单  自动维护: python3 scripts/manage_sources.py --prune
-# 最后探测: 2026-11-01 23:12   可用 373 个 (已剔除 9 个失效)
+# 最后探测: 2026-11-08 23:15   可用 480 个 (已剔除 13 个失效)
 # 日期占位符: {Ymd} {Y}/{m}/{d} 等, 运行时按当天展开
 
 https://sfdr.zaixianyouxi.dpdns.org/uploads/{Y}/{m}/{Ymd}.txt
@@ -170,12 +170,9 @@ https://raw.githubusercontent.com/roosterkid/openproxylist/main/V2RAY_RAW.txt
 https://raw.githubusercontent.com/cbusifabcap/daily_free_vpn/main/sub/Clash.yml
 https://raw.githubusercontent.com/cbusifabcap/daily_free_vpn/main/sub/ClashMeta.yml
 https://raw.githubusercontent.com/cbusifabcap/daily_free_vpn/main/sub/ShadowRocket.yml
-https://raw.githubusercontent.com/cbusifabcap/daily_free_vpn/main/sub/Surfboard.yml
-https://raw.githubusercontent.com/cbusifabcap/daily_free_vpn/main/sub/Surge.yml
 https://raw.githubusercontent.com/cbusifabcap/daily_free_vpn/main/sub/URI.yml
 https://raw.githubusercontent.com/cbusifabcap/daily_free_vpn/main/sub/V2Ray.yml
 https://raw.githubusercontent.com/cbusifabcap/daily_free_vpn/main/sub/mihomo.yml
-https://raw.githubusercontent.com/cbusifabcap/daily_free_vpn/main/sub/sing-box.yml
 https://raw.githubusercontent.com/cbusifabcap/daily_free_vpn/main/sub/sub.yml
 https://raw.githubusercontent.com/iboxz/free-v2ray-collector/main/main/shadowsocks.txt
 https://raw.githubusercontent.com/iboxz/free-v2ray-collector/main/main/trojan.txt
@@ -216,12 +213,9 @@ https://raw.githubusercontent.com/komoterdon/free-sub/main/sub.txt
 https://raw.githubusercontent.com/shaoyouvip/free/main/all.yaml
 https://raw.githubusercontent.com/vincent20240707/free-v2ray-nodes/main/nodes.txt
 https://raw.githubusercontent.com/hamedcode/port-based-v2ray-configs/main/detailed/ss/10808.txt
-https://raw.githubusercontent.com/hamedcode/port-based-v2ray-configs/main/detailed/ss/1345.txt
 https://raw.githubusercontent.com/hamedcode/port-based-v2ray-configs/main/detailed/ss/1349.txt
-https://raw.githubusercontent.com/hamedcode/port-based-v2ray-configs/main/detailed/ss/1353.txt
 https://raw.githubusercontent.com/hamedcode/port-based-v2ray-configs/main/detailed/ss/1354.txt
 https://raw.githubusercontent.com/hamedcode/port-based-v2ray-configs/main/detailed/ss/16233.txt
-https://raw.githubusercontent.com/hamedcode/port-based-v2ray-configs/main/detailed/ss/18283.txt
 https://raw.githubusercontent.com/Thordata/awesome-free-proxy-list/main/docs/data/clash/all.yaml
 https://raw.githubusercontent.com/Thordata/awesome-free-proxy-list/main/docs/data/clash/fast.yaml
 https://raw.githubusercontent.com/Thordata/awesome-free-proxy-list/main/docs/data/clash/high-anon.yaml
@@ -274,7 +268,6 @@ https://raw.githubusercontent.com/nostalume/FreeNodes/main/nodes/clashmeta.yaml
 https://raw.githubusercontent.com/nostalume/FreeNodes/main/nodes/clashnode.yaml
 https://raw.githubusercontent.com/nostalume/FreeNodes/main/nodes/clashstair.yaml
 https://raw.githubusercontent.com/nostalume/FreeNodes/main/nodes/freeclashnode.yaml
-https://raw.githubusercontent.com/nostalume/FreeNodes/main/nodes/jichangx.yaml
 https://raw.githubusercontent.com/nostalume/FreeNodes/main/nodes/merged.txt
 https://raw.githubusercontent.com/nostalume/FreeNodes/main/nodes/merged.yaml
 https://raw.githubusercontent.com/nostalume/FreeNodes/main/nodes/nodev2ray.yaml
@@ -322,7 +315,6 @@ https://raw.githubusercontent.com/rtwo2/FastNodes/main/sub/continents/Africa_par
 https://raw.githubusercontent.com/rtwo2/FastNodes/main/sub/continents/Africa_part3.txt
 https://raw.githubusercontent.com/rtwo2/FastNodes/main/sub/continents/Africa_part4.txt
 https://raw.githubusercontent.com/rtwo2/FastNodes/main/sub/continents/Africa_part5.txt
-https://raw.githubusercontent.com/rtwo2/FastNodes/main/sub/continents/Africa_part6.txt
 https://raw.githubusercontent.com/rtwo2/FastNodes/main/sub/continents/Antarctica.txt
 https://raw.githubusercontent.com/rtwo2/FastNodes/main/sub/continents/Asia.txt
 https://raw.githubusercontent.com/rtwo2/FastNodes/main/sub/continents/Asia_part10.txt
@@ -375,15 +367,9 @@ https://raw.githubusercontent.com/ninjastrikers/v2ray-configs/main/Sub15.txt
 https://raw.githubusercontent.com/ninjastrikers/v2ray-configs/main/Sub16.txt
 https://raw.githubusercontent.com/ninjastrikers/v2ray-configs/main/Sub17.txt
 https://raw.githubusercontent.com/ninjastrikers/v2ray-configs/main/Sub18.txt
-
-# ---- 自动发现 (discover) 新增 ----
 https://raw.githubusercontent.com/barry-far/V2ray-Config/main/Base64/Sub18_base64.txt
-https://raw.githubusercontent.com/hamedcode/port-based-v2ray-configs/main/detailed/ss/11470.txt
-https://raw.githubusercontent.com/hamedcode/port-based-v2ray-configs/main/detailed/ss/1352.txt
 https://raw.githubusercontent.com/hamedcode/port-based-v2ray-configs/main/detailed/ss/1355.txt
 https://raw.githubusercontent.com/hamedcode/port-based-v2ray-configs/main/detailed/ss/18443.txt
-https://raw.githubusercontent.com/hamedcode/port-based-v2ray-configs/main/detailed/ss/18766.txt
-https://raw.githubusercontent.com/Idolvpn/Automate-V2ray-Config-Collector/main/configs/country_UN.txt
 https://raw.githubusercontent.com/nostalume/FreeNodes/main/nodes/kooker.yaml
 https://raw.githubusercontent.com/nostalume/FreeNodes/main/nodes/provider.yaml
 https://raw.githubusercontent.com/ninjastrikers/v2ray-configs/main/Sub19.txt
@@ -413,7 +399,6 @@ https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_CA.m
 https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_CA.yml
 https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_CH.meta.yml
 https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_CH.yml
-https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_CN.meta.yml
 https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_DE.meta.yml
 https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_DE.yml
 https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/sub/airport_merge_base64.txt
@@ -497,3 +482,64 @@ https://raw.githubusercontent.com/MatinGhanbari/v2ray-configs/main/subscriptions
 https://raw.githubusercontent.com/MatinGhanbari/v2ray-configs/main/subscriptions/base64/subs/sub14.txt
 https://raw.githubusercontent.com/MatinGhanbari/v2ray-configs/main/subscriptions/base64/subs/sub15.txt
 https://raw.githubusercontent.com/MatinGhanbari/v2ray-configs/main/subscriptions/base64/subs/sub16.txt
+
+# ---- 自动发现 (discover) 新增 ----
+https://raw.githubusercontent.com/hamedcode/port-based-v2ray-configs/main/detailed/ss/10099.txt
+https://raw.githubusercontent.com/hamedcode/port-based-v2ray-configs/main/detailed/ss/1080.txt
+https://raw.githubusercontent.com/hamedcode/port-based-v2ray-configs/main/detailed/ss/1100.txt
+https://raw.githubusercontent.com/hamedcode/port-based-v2ray-configs/main/detailed/ss/12798.txt
+https://raw.githubusercontent.com/hamedcode/port-based-v2ray-configs/main/detailed/ss/13108.txt
+https://raw.githubusercontent.com/hamedcode/port-based-v2ray-configs/main/detailed/ss/13263.txt
+https://raw.githubusercontent.com/hamedcode/port-based-v2ray-configs/main/detailed/ss/1348.txt
+https://raw.githubusercontent.com/hamedcode/port-based-v2ray-configs/main/detailed/ss/14483.txt
+https://raw.githubusercontent.com/Idolvpn/Automate-V2ray-Config-Collector/main/configs/vless.txt
+https://raw.githubusercontent.com/rtwo2/FastNodes/main/sub/continents/Asia_part14.txt
+https://raw.githubusercontent.com/MatinGhanbari/v2ray-configs/main/subscriptions/base64/subs/sub17.txt
+https://raw.githubusercontent.com/kort0881/vpn-vless-configs-russia/main/data/githubmirror/clean/ss.txt
+https://raw.githubusercontent.com/kort0881/vpn-vless-configs-russia/main/data/githubmirror/clean/trojan.txt
+https://raw.githubusercontent.com/kort0881/vpn-vless-configs-russia/main/data/githubmirror/clean/vless.txt
+https://raw.githubusercontent.com/kort0881/vpn-vless-configs-russia/main/data/githubmirror/clean/vmess.txt
+https://raw.githubusercontent.com/kort0881/vpn-vless-configs-russia/main/data/githubmirror/ru-sni-local/vless.txt
+https://raw.githubusercontent.com/kort0881/vpn-vless-configs-russia/main/data/githubmirror/ru-sni/ss.txt
+https://raw.githubusercontent.com/kort0881/vpn-vless-configs-russia/main/data/githubmirror/ru-sni/trojan.txt
+https://raw.githubusercontent.com/kort0881/vpn-vless-configs-russia/main/data/githubmirror/ru-sni/vless.txt
+https://raw.githubusercontent.com/mrvcoder/V2rayCollector/main/ss_iran.txt
+https://raw.githubusercontent.com/mrvcoder/V2rayCollector/main/trojan_iran.txt
+https://raw.githubusercontent.com/mrvcoder/V2rayCollector/main/vless_iran.txt
+https://raw.githubusercontent.com/mrvcoder/V2rayCollector/main/vmess_iran.txt
+https://raw.githubusercontent.com/Delta-Kronecker/V2ray-Config/main/.github/workflows/update-configs.yml
+https://raw.githubusercontent.com/Delta-Kronecker/V2ray-Config/main/config/all_configs.txt
+https://raw.githubusercontent.com/Delta-Kronecker/V2ray-Config/main/config/archive/all_configs_{Y}-{m}-{d}.txt
+https://raw.githubusercontent.com/Delta-Kronecker/V2ray-Config/main/config/batches/clash/batch_001.yaml
+https://raw.githubusercontent.com/Delta-Kronecker/V2ray-Config/main/config/batches/clash/batch_002.yaml
+https://raw.githubusercontent.com/Delta-Kronecker/V2ray-Config/main/config/batches/clash/batch_003.yaml
+https://raw.githubusercontent.com/Delta-Kronecker/V2ray-Config/main/config/batches/clash/batch_004.yaml
+https://raw.githubusercontent.com/Delta-Kronecker/V2ray-Config/main/config/batches/clash/batch_005.yaml
+https://raw.githubusercontent.com/Delta-Kronecker/V2ray-Config/main/config/batches/clash/batch_006.yaml
+https://raw.githubusercontent.com/Delta-Kronecker/V2ray-Config/main/config/batches/clash/batch_007.yaml
+https://raw.githubusercontent.com/Delta-Kronecker/V2ray-Config/main/config/batches/sni_clash/batch_001.yaml
+https://raw.githubusercontent.com/Delta-Kronecker/V2ray-Config/main/config/batches/sni_v2ray/batch_001.txt
+https://raw.githubusercontent.com/VPN-Subcription-Links/ClashX-V2Ray-TopFreeProxy/main/combine/clash.config.template.yaml
+https://raw.githubusercontent.com/VPN-Subcription-Links/ClashX-V2Ray-TopFreeProxy/main/combine/clash.config.yaml
+https://raw.githubusercontent.com/VPN-Subcription-Links/ClashX-V2Ray-TopFreeProxy/main/combine/v2ray.config.txt
+https://raw.githubusercontent.com/vxiaov/free_proxy_ss/main/config.yaml
+https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/config.yml
+https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes.meta.yml
+https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes.yml
+https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes_CA.meta.yml
+https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes_CA.yml
+https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes_CH.meta.yml
+https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes_CH.yml
+https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes_DE.meta.yml
+https://raw.githubusercontent.com/gslege/CloudflareIP/main/Vless.txt
+https://raw.githubusercontent.com/zhuhaiuk/free-nodes/main/clash_config.yaml
+https://raw.githubusercontent.com/zhuhaiuk/free-nodes/main/extra_clash_config.yaml
+https://raw.githubusercontent.com/zhuhaiuk/free-nodes/main/extra_nodes.txt
+https://raw.githubusercontent.com/zhuhaiuk/free-nodes/main/nodes.txt
+https://raw.githubusercontent.com/Rain-kl/PoolX/main/config.example.yaml
+https://raw.githubusercontent.com/proxifly/free-proxy-list/main/proxies/all/data.json
+https://raw.githubusercontent.com/proxifly/free-proxy-list/main/proxies/all/data.txt
+https://raw.githubusercontent.com/proxifly/free-proxy-list/main/proxies/all/data.yaml
+https://raw.githubusercontent.com/therealaleph/MasterHttpRelayVPN-RUST/main/assets/github-actions-tunnel/cloudflared-named.yml
+https://raw.githubusercontent.com/therealaleph/MasterHttpRelayVPN-RUST/main/assets/github-actions-tunnel/cloudflared-quick.yml
+https://raw.githubusercontent.com/therealaleph/MasterHttpRelayVPN-RUST/main/assets/github-actions-tunnel/ngrok.yml
