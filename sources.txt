@@ -1,8 +1,7 @@
 # 上游节点源清单  自动维护: python3 scripts/manage_sources.py --prune
-# 最后探测: 2026-11-15 23:37   可用 532 个 (已剔除 7 个失效)
+# 最后探测: 2026-11-23 00:32   可用 530 个 (已剔除 13 个失效)
 # 日期占位符: {Ymd} {Y}/{m}/{d} 等, 运行时按当天展开
 
-https://sfdr.zaixianyouxi.dpdns.org/uploads/{Y}/{m}/{Ymd}.txt
 https://oss.oneclash.cc/{Y}/{m}/{Ymd}.txt
 https://raw.githubusercontent.com/0xRadikal/Free-v2ray-Configs/main/all/clash.yaml
 https://raw.githubusercontent.com/0xRadikal/Free-v2ray-Configs/main/all/configs.txt
@@ -312,7 +311,6 @@ https://raw.githubusercontent.com/rtwo2/FastNodes/main/sub/continents/Africa.txt
 https://raw.githubusercontent.com/rtwo2/FastNodes/main/sub/continents/Africa_part2.txt
 https://raw.githubusercontent.com/rtwo2/FastNodes/main/sub/continents/Africa_part3.txt
 https://raw.githubusercontent.com/rtwo2/FastNodes/main/sub/continents/Africa_part4.txt
-https://raw.githubusercontent.com/rtwo2/FastNodes/main/sub/continents/Africa_part5.txt
 https://raw.githubusercontent.com/rtwo2/FastNodes/main/sub/continents/Antarctica.txt
 https://raw.githubusercontent.com/rtwo2/FastNodes/main/sub/continents/Asia.txt
 https://raw.githubusercontent.com/rtwo2/FastNodes/main/sub/continents/Asia_part10.txt
@@ -453,7 +451,6 @@ https://raw.githubusercontent.com/learnhard-cn/free_proxy_ss/main/config.yaml
 https://raw.githubusercontent.com/ermaozi01/free_clash_vpn/main/subscribe/clash.yml
 https://raw.githubusercontent.com/ermaozi01/free_clash_vpn/main/subscribe/v2ray.txt
 https://raw.githubusercontent.com/igareck/vpn-configs-for-russia/main/BLACK_SS+All_RUS.txt
-https://raw.githubusercontent.com/igareck/vpn-configs-for-russia/main/BLACK_SS_WEAK_DPI_RUS.txt
 https://raw.githubusercontent.com/igareck/vpn-configs-for-russia/main/BLACK_VLESS_RUS.txt
 https://raw.githubusercontent.com/igareck/vpn-configs-for-russia/main/BLACK_VLESS_RUS_mobile.txt
 https://raw.githubusercontent.com/igareck/vpn-configs-for-russia/main/Export/Base64/PROXIES_ONLY/BLACK_SS+All_RUS_base64.txt
@@ -481,7 +478,6 @@ https://raw.githubusercontent.com/MatinGhanbari/v2ray-configs/main/subscriptions
 https://raw.githubusercontent.com/MatinGhanbari/v2ray-configs/main/subscriptions/base64/subs/sub15.txt
 https://raw.githubusercontent.com/MatinGhanbari/v2ray-configs/main/subscriptions/base64/subs/sub16.txt
 https://raw.githubusercontent.com/hamedcode/port-based-v2ray-configs/main/detailed/ss/1080.txt
-https://raw.githubusercontent.com/hamedcode/port-based-v2ray-configs/main/detailed/ss/13108.txt
 https://raw.githubusercontent.com/hamedcode/port-based-v2ray-configs/main/detailed/ss/1348.txt
 https://raw.githubusercontent.com/Idolvpn/Automate-V2ray-Config-Collector/main/configs/vless.txt
 https://raw.githubusercontent.com/rtwo2/FastNodes/main/sub/continents/Asia_part14.txt
@@ -500,14 +496,12 @@ https://raw.githubusercontent.com/mrvcoder/V2rayCollector/main/vless_iran.txt
 https://raw.githubusercontent.com/mrvcoder/V2rayCollector/main/vmess_iran.txt
 https://raw.githubusercontent.com/Delta-Kronecker/V2ray-Config/main/.github/workflows/update-configs.yml
 https://raw.githubusercontent.com/Delta-Kronecker/V2ray-Config/main/config/all_configs.txt
-https://raw.githubusercontent.com/Delta-Kronecker/V2ray-Config/main/config/archive/all_configs_{Y}-{m}-{d}.txt
 https://raw.githubusercontent.com/Delta-Kronecker/V2ray-Config/main/config/batches/clash/batch_001.yaml
 https://raw.githubusercontent.com/Delta-Kronecker/V2ray-Config/main/config/batches/clash/batch_002.yaml
 https://raw.githubusercontent.com/Delta-Kronecker/V2ray-Config/main/config/batches/clash/batch_003.yaml
 https://raw.githubusercontent.com/Delta-Kronecker/V2ray-Config/main/config/batches/clash/batch_004.yaml
 https://raw.githubusercontent.com/Delta-Kronecker/V2ray-Config/main/config/batches/clash/batch_005.yaml
 https://raw.githubusercontent.com/Delta-Kronecker/V2ray-Config/main/config/batches/clash/batch_006.yaml
-https://raw.githubusercontent.com/Delta-Kronecker/V2ray-Config/main/config/batches/clash/batch_007.yaml
 https://raw.githubusercontent.com/Delta-Kronecker/V2ray-Config/main/config/batches/sni_clash/batch_001.yaml
 https://raw.githubusercontent.com/Delta-Kronecker/V2ray-Config/main/config/batches/sni_v2ray/batch_001.txt
 https://raw.githubusercontent.com/VPN-Subcription-Links/ClashX-V2Ray-TopFreeProxy/main/combine/clash.config.template.yaml
@@ -534,16 +528,25 @@ https://raw.githubusercontent.com/proxifly/free-proxy-list/main/proxies/all/data
 https://raw.githubusercontent.com/therealaleph/MasterHttpRelayVPN-RUST/main/assets/github-actions-tunnel/cloudflared-named.yml
 https://raw.githubusercontent.com/therealaleph/MasterHttpRelayVPN-RUST/main/assets/github-actions-tunnel/cloudflared-quick.yml
 https://raw.githubusercontent.com/therealaleph/MasterHttpRelayVPN-RUST/main/assets/github-actions-tunnel/ngrok.yml
-
-# ---- 自动发现 (discover) 新增 ----
 https://raw.githubusercontent.com/barry-far/V2ray-Config/main/Base64/Sub19_base64.txt
-https://raw.githubusercontent.com/hamedcode/port-based-v2ray-configs/main/detailed/ss/10814.txt
-https://raw.githubusercontent.com/hamedcode/port-based-v2ray-configs/main/detailed/ss/10840.txt
-https://raw.githubusercontent.com/hamedcode/port-based-v2ray-configs/main/detailed/ss/11133.txt
-https://raw.githubusercontent.com/hamedcode/port-based-v2ray-configs/main/detailed/ss/12576.txt
-https://raw.githubusercontent.com/hamedcode/port-based-v2ray-configs/main/detailed/ss/1352.txt
-https://raw.githubusercontent.com/hamedcode/port-based-v2ray-configs/main/detailed/ss/1353.txt
 https://raw.githubusercontent.com/hamedcode/port-based-v2ray-configs/main/detailed/ss/14384.txt
 https://raw.githubusercontent.com/Idolvpn/Automate-V2ray-Config-Collector/main/configs/trojan.txt
 https://raw.githubusercontent.com/nostalume/FreeNodes/main/nodes/datiya.yaml
-https://raw.githubusercontent.com/nostalume/FreeNodes/main/nodes/jichangx.yaml
+
+# ---- 自动发现 (discover) 新增 ----
+https://raw.githubusercontent.com/cbusifabcap/daily_free_vpn/main/sub/Surfboard.yml
+https://raw.githubusercontent.com/cbusifabcap/daily_free_vpn/main/sub/Surge.yml
+https://raw.githubusercontent.com/cbusifabcap/daily_free_vpn/main/sub/sing-box.yml
+https://raw.githubusercontent.com/hamedcode/port-based-v2ray-configs/main/detailed/ss/10002.txt
+https://raw.githubusercontent.com/hamedcode/port-based-v2ray-configs/main/detailed/ss/10099.txt
+https://raw.githubusercontent.com/hamedcode/port-based-v2ray-configs/main/detailed/ss/11051.txt
+https://raw.githubusercontent.com/hamedcode/port-based-v2ray-configs/main/detailed/ss/15231.txt
+https://raw.githubusercontent.com/hamedcode/port-based-v2ray-configs/main/detailed/ss/19690.txt
+https://raw.githubusercontent.com/Idolvpn/Automate-V2ray-Config-Collector/main/configs/network_httpupgrade.txt
+https://raw.githubusercontent.com/Idolvpn/Automate-V2ray-Config-Collector/main/configs/reality.txt
+https://raw.githubusercontent.com/rtwo2/FastNodes/main/sub/continents/Asia_part15.txt
+https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_CN.meta.yml
+https://raw.githubusercontent.com/Barabama/FreeNodes/main/config.yaml
+https://raw.githubusercontent.com/Delta-Kronecker/V2ray-Config/main/config/archive/all_configs_2026-11-22_103112.txt
+https://raw.githubusercontent.com/Delta-Kronecker/V2ray-Config/main/config/batches/v2ray/batch_001.txt
+https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes_CN.meta.yml
